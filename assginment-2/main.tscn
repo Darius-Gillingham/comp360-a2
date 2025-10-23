@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=16 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="ArrayMesh" path="res://dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textMap_DUNE.png" id="2_0xm2m"]
@@ -34,13 +34,16 @@ height = 19.172
 [sub_resource type="Curve3D" id="Curve3D_1bvp3"]
 closed = true
 _data = {
-"points": PackedVector3Array(-0.3359245, -0.71802235, -3.9818296, 0.14337063, 0.30644774, 1.6994216, 9.83958, -5.1432567, 2.5383773, 2.476734, -1.8408885, -0.8986311, -0.8858861, 0.65845484, 0.32142523, 2.8073995, -3.640953, 7.365419, 3.5281534, 0.8506782, 0.7520809, -3.2182012, -0.7759451, -0.68600976, -2.5693727, -3.1399164, 8.345558, -3.406738, -0.3434677, 2.1211889, 0.9576433, 0.0965497, -0.59627193, -6.0588045, -3.8441129, -3.6911073, -3.379445, 0.14505796, -1.0532947, 3.0904775, -0.13265443, 0.96323013, 1.8092675, -1.8382449, -11.613108, -3.3721285, 0.33588544, -2.071993, 5.005171, -0.49854684, 3.0754108, 9.267356, -0.82275367, -12.773792, 2.371877, 0.12024815, -2.2131958, -1.375001, -0.06970906, 1.2830119, 13.115253, -2.1475868, -7.5094695),
+"points": PackedVector3Array(-0.3359245, -0.71802235, -3.9818296, 0.14337063, 0.30644774, 1.6994216, 9.83958, -5.1432567, 2.5383773, 0.6393719, -0.22013545, -0.10061264, -0.6393719, 0.22013545, 0.10061264, 2.8073995, -5.0551376, 7.365418, 2.0652108, -0.20483732, 1.0169172, -2.0652108, 0.20483732, -1.0169172, -2.5693727, -4.1964474, 8.345558, -3.406738, -0.3434677, 2.1211889, 0.9576433, 0.0965497, -0.59627193, -6.0588045, -4.50636, -3.691107, -3.379445, 0.14505796, -1.0532947, 3.0904775, -0.13265443, 0.96323013, 1.8092675, -2.679347, -11.613108, -3.3721285, 0.33588544, -2.071993, 5.005171, -0.49854684, 3.0754108, 9.296894, -2.6428976, -14.873191, 2.371877, 0.12024815, -2.2131958, -1.375001, -0.06970906, 1.2830119, 14.452425, -2.147587, -5.1324224),
 "tilts": PackedFloat32Array(-0.0085999, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.26293245, 0.26293245, 0.26293245, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_color = Color(0.26871857, 0.27654833, 0.26894224, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_color = Color(0, 0, 0, 1)
@@ -57,7 +60,7 @@ light_energy = 0.34
 shadow_enabled = true
 
 [node name="Dune" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.75695, -0.9413643, -148.03564)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -507.69217, -0.9413948, -506.30286)
 mesh = ExtResource("1_ig7tw")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
 
@@ -82,10 +85,11 @@ skeleton = NodePath("../..")
 [node name="Track" type="Node" parent="."]
 
 [node name="Path3D" type="Path3D" parent="Track"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.28242397, 30.253805, -0.7907853)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.680997, 42.125282, -0.7907853)
 curve = SubResource("Curve3D_1bvp3")
 
 [node name="Outerwall" type="CSGPolygon3D" parent="Track"]
+use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 0.25, 0.2, 0.25, 0.2, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -99,6 +103,22 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_7mycd")
+
+[node name="innerwall" type="CSGPolygon3D" parent="Track"]
+visible = false
+polygon = PackedVector2Array(0.9364802, -0.01129508, 0.93278533, 0.1692609, 1.1251961, 0.17413807, 1.1205261, -0.0015746355)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.41
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_272bh")
 
 [node name="Main Road" type="CSGPolygon3D" parent="Track"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029295564, -0.011742324, 0.0022836924)
@@ -121,4 +141,4 @@ material = SubResource("StandardMaterial3D_lquwl")
 transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
 
 [node name="Car" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.2663469, 0, 0.96387726, 0, 1, 0, -0.96387726, 0, -0.2663469, 26.24194, 8.348014, 27.455162)
+transform = Transform3D(-0.2663469, 0, 0.96387726, 0, 1, 0, -0.96387726, 0, -0.2663469, 26.24194, 18.177507, 27.455162)

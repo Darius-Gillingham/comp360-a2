@@ -7,6 +7,6 @@ func _ready():
 	pass
 	
 func _process(delta):
-	steering = move_toward(steering, Input.get_axis("vi_right", "vi_left") * MAX_STEER, delta *2.5)
+	steering = move_toward(steering, Input.get_axis("vi_right", "vi_left") * MAX_STEER, delta *10)
 	engine_force = Input.get_axis("vi_down", "vi_up") * ENGINE_POWER
 	

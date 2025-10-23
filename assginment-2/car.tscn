@@ -369,11 +369,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_us0hj")
 
 [node name="Car" type="VehicleBody3D"]
-gravity_scale = 0.4
+mass = 69.512
+gravity_scale = 1.808
 script = ExtResource("1_7822p")
 
 [node name="BodyCollisin" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04873401, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005436182, 0)
 shape = SubResource("ConvexPolygonShape3D_uoj53")
 
 [node name="Body" type="MeshInstance3D" parent="."]
