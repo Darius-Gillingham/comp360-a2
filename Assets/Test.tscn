@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddpjwxkw1ugjb"]
+
+[ext_resource type="PackedScene" uid="uid://cvfakq15uq57i" path="res://Assets/Car.tscn" id="1_yys7e"]
+[ext_resource type="PackedScene" uid="uid://cndw68j142r43" path="res://Assets/tractor.tscn" id="2_noiw6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noiw6"]
+size = Vector3(1000, 0.2, 10000)
+
+[sub_resource type="Skin" id="Skin_xbobo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_noiw6"]
+points = PackedVector3Array(50.78371, 0.6936507, 50.78371, -50.78371, -0.89365077, -50.78371, -50.78371, 0.6936507, -50.78371, 50.78371, -0.89365077, -50.78371, -50.78371, -0.89365077, 50.78371, -50.78371, 0.6936507, 50.78371, 50.78371, 0.6936507, -50.78371, 50.78371, -0.89365077, 50.78371)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="sedan-sports" parent="." instance=ExtResource("1_yys7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32729197, 0)
+center_of_mass = Vector3(0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 15.885374, 2.86101)
+
+[node name="tractor" parent="." instance=ExtResource("2_noiw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1567914, 0, 7.588361)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2015803, -0.11959386, 0.035565622)
+mesh = SubResource("BoxMesh_noiw6")
+skin = SubResource("Skin_xbobo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_noiw6")

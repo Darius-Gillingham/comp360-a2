@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cndw68j142r43"]
+
+[ext_resource type="PackedScene" uid="uid://lc2pn3h3t5lw" path="res://Assets/tractor.glb" id="1_m818k"]
+[ext_resource type="Texture2D" uid="uid://deintm435u4e7" path="res://Assets/colormap.png" id="2_shuyf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a2fy"]
+albedo_texture = ExtResource("2_shuyf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwpe7"]
+albedo_texture = ExtResource("2_shuyf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rreyg"]
+albedo_texture = ExtResource("2_shuyf")
+
+[node name="tractor" instance=ExtResource("1_m818k")]
+
+[node name="wheel-front-right" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_8a2fy")
+
+[node name="wheel-front-left" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_hwpe7")
+
+[node name="body" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_rreyg")
