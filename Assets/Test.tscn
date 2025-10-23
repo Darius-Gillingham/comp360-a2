@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cndw68j142r43" path="res://Assets/tractor.tscn" id="2_noiw6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noiw6"]
-size = Vector3(1000, 0.2, 10000)
+size = Vector3(1000, 15, 10000)
 
 [sub_resource type="Skin" id="Skin_xbobo"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_noiw6"]
-points = PackedVector3Array(50.78371, 0.6936507, 50.78371, -50.78371, -0.89365077, -50.78371, -50.78371, 0.6936507, -50.78371, 50.78371, -0.89365077, -50.78371, -50.78371, -0.89365077, 50.78371, -50.78371, 0.6936507, 50.78371, 50.78371, 0.6936507, -50.78371, 50.78371, -0.89365077, 50.78371)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_noiw6"]
+data = PackedVector3Array(-500, 7.5, 5000, 500, 7.5, 5000, -500, -7.5, 5000, 500, 7.5, 5000, 500, -7.5, 5000, -500, -7.5, 5000, 500, 7.5, -5000, -500, 7.5, -5000, 500, -7.5, -5000, -500, 7.5, -5000, -500, -7.5, -5000, 500, -7.5, -5000, 500, 7.5, 5000, 500, 7.5, -5000, 500, -7.5, 5000, 500, 7.5, -5000, 500, -7.5, -5000, 500, -7.5, 5000, -500, 7.5, -5000, -500, 7.5, 5000, -500, -7.5, -5000, -500, 7.5, 5000, -500, -7.5, 5000, -500, -7.5, -5000, 500, 7.5, 5000, -500, 7.5, 5000, 500, 7.5, -5000, -500, 7.5, 5000, -500, 7.5, -5000, 500, 7.5, -5000, -500, -7.5, 5000, 500, -7.5, 5000, -500, -7.5, -5000, 500, -7.5, 5000, 500, -7.5, -5000, -500, -7.5, -5000)
 
 [node name="Node3D" type="Node3D"]
 
@@ -24,11 +24,11 @@ transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1567914, 0, 7.588361)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2015803, -0.11959386, 0.035565622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.202, -8, 0.036)
 mesh = SubResource("BoxMesh_noiw6")
 skin = SubResource("Skin_xbobo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_noiw6")
+shape = SubResource("ConcavePolygonShape3D_noiw6")
