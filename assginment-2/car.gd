@@ -1,12 +1,42 @@
 extends VehicleBody3D
 
-const MAX_STEER = 0.8
-const ENGINE_POWER = 800
+const STEER_LIMIT= deg_to_rad(20)
+const ENGINE_POWER = 200
 
-func _ready():
-	pass
+@onready var camera_pivot: Node3D = $CameraPivot
+@onready var camera_3d: Camera3D = $CameraPivot/Camera3D
+@onready var reverse_camera: Camera3D = $CameraPivot/ReverseCamera
+
+var move_input
+var turn_input
+var look_toward
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	look_toward = global_position
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	move_input = Input.get_action_strength("vi_up") - Input.get_action_strength("vi_down")
+	turn_input = Input.get_action_strength("vi_left") - Input.get_action_strength("vi_right")
 	
-func _process(delta):
-	steering = move_toward(steering, Input.get_axis("vi_right", "vi_left") * MAX_STEER, delta *10)
-	engine_force = Input.get_axis("vi_down", "vi_up") * ENGINE_POWER
+	engine_force = move_input*ENGINE_POWER
+	steering = turn_input*STEER_LIMIT
+	
+	
+	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20.0)
+	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta * 5.0)
+	look_toward = look_toward.lerp(global_position + linear_velocity, delta * 5.0)
+	camera_3d.look_at(look_toward)
+	reverse_camera.look_at(look_toward)
+	check_camera_switch()
+	
+
+func check_camera_switch():
+	if Input.is_action_pressed("vi_down"):
+		reverse_camera.current = true
+	else:
+		camera_3d.current = true
+		
 	
