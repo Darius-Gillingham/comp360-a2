@@ -68,4 +68,3 @@ path_joined = false
 
 [node name="Car" parent="." instance=ExtResource("4_21epx")]
 transform = Transform3D(-0.08911014, -0.08934629, 0.9920065, -0.007993629, 0.99600065, 0.08898798, -0.9959898, 0, -0.08946796, 6.440811, 37.403187, 378.05026)
-visible = false
