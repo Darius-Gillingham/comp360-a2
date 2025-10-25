@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://cvfakq15uq57i"]
 
 [ext_resource type="Script" uid="uid://rhddgg16m75v" path="res://car.gd" id="1_1bdfw"]
-[ext_resource type="Texture2D" uid="uid://bbc47qgecwu5n" path="res://colormap.png" id="2_1bdfw"]
+[ext_resource type="Texture2D" uid="uid://bbc47qgecwu5n" path="res://textures/colormap.png" id="2_1bdfw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bk4j7"]
 albedo_texture = ExtResource("2_1bdfw")
@@ -313,7 +313,7 @@ mesh = SubResource("ArrayMesh_ala6t")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20322987, -0.025)
 shape = SubResource("ConvexPolygonShape3D_nmo8j")
 
 [node name="CenterOfMass" type="Node3D" parent="."]
