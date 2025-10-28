@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" path="res://meshes/coastMesh.mesh" id="1_yl37a"]
 [ext_resource type="Texture2D" uid="uid://lqa4bum8ib25" path="res://textMap_COAST.png" id="2_d2vag"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="3_d2vag"]
-[ext_resource type="PackedScene" uid="uid://cvfakq15uq57i" path="res://Car.tscn" id="4_21epx"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_21epx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21epx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,4 +67,4 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Car" parent="." instance=ExtResource("4_21epx")]
-transform = Transform3D(-0.08911014, -0.08934629, 0.9920065, -0.007993629, 0.99600065, 0.08898798, -0.9959898, 0, -0.08946796, 6.440811, 37.403187, 378.05026)
+transform = Transform3D(0.1253505, 0, 0.9921125, 0, 1, 0, -0.9921125, 0, 0.1253505, 104.20293, 47.502792, 367.36996)

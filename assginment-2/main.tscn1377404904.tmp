@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textMap_DUNE.png" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://cxojhkgjhpc1o" path="res://DariusAdd.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cxojhkgjhpc1o" path="res://textures/DariusAdd.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 
@@ -58,8 +58,6 @@ transform = Transform3D(11.475, 0, 0, 0, 11.475, 0, 0, 0, 11.475, -1340.7534, 3.
 mesh = ExtResource("1_ig7tw")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
 
-[node name="Car" parent="Dune" instance=ExtResource("4_1bvp3")]
-
 [node name="Sign" type="Node" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sign"]
@@ -81,11 +79,10 @@ skeleton = NodePath("../..")
 [node name="Track" type="Node" parent="."]
 
 [node name="Path3D" type="Path3D" parent="Track"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -30.85888, 107.52907, 6.311615)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -30.85888, 109.88307, 6.311615)
 curve = SubResource("Curve3D_1bvp3")
 
 [node name="Node3D" parent="Track" instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088083744, 4.3177843, 0.006151676)
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
@@ -98,9 +95,14 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Car" parent="Track" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.951687, 99.38894, 8.268679)
-mass = 100.0
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
+
+[node name="Car" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.671684, 96.05139, 0)
+mass = 100.0
+linear_damp_mode = 0
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.299858, 182.19398, -10.261528)

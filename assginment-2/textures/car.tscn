@@ -1,17 +1,32 @@
-[gd_scene load_steps=15 format=3 uid="uid://duq45g0wsaw82"]
+[gd_scene load_steps=20 format=3 uid="uid://duq45g0wsaw82"]
 
-[ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
-[ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
-[ext_resource type="Curve" path="res://tire_front_curve.tres" id="4_mjudg"]
-[ext_resource type="PackedScene" uid="uid://bawltqpr7tgkg" path="res://textures/wheel-racing(1).glb" id="4_td361"]
-[ext_resource type="PackedScene" uid="uid://bqgjxd3o4c8ii" path="res://textures/race-future(1).glb" id="5_td361"]
-[ext_resource type="Curve" path="res://tire_back_curve.tres" id="5_v0hk8"]
-[ext_resource type="Script" uid="uid://dnihxwwm2dgwx" path="res://camera_follow_car.gd" id="6_72krn"]
+[ext_resource type="Script" uid="uid://0ufikschimi1" path="res://RaycastCar.gd" id="1_06lh1"]
+[ext_resource type="Texture2D" uid="uid://ceghgnsc1vhuf" path="res://Assets/Checkered/checker_lime_512x512.png" id="2_td361"]
+[ext_resource type="Script" uid="uid://duj8mtue15cdp" path="res://raycast_wheel.gd" id="3_72krn"]
+[ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="4_mjudg"]
+[ext_resource type="PackedScene" uid="uid://7h5dr8yoe1iy" path="res://Assets/CarModel/wheel-racing(1).glb" id="4_td361"]
+[ext_resource type="PackedScene" uid="uid://b5w20wr7je4" path="res://Assets/CarModel/race-future(1).glb" id="5_td361"]
+[ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_v0hk8"]
+[ext_resource type="Script" uid="uid://bqt7y3cga6o5t" path="res://camera_follow_car.gd" id="6_72krn"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
 point_count = 6
 metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud3vi"]
+albedo_texture = ExtResource("2_td361")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5457m"]
+material = SubResource("StandardMaterial3D_ud3vi")
+size = Vector3(2, 0.5, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivea3"]
+albedo_texture = ExtResource("2_td361")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvck6"]
+material = SubResource("StandardMaterial3D_ivea3")
+size = Vector3(0.65, 0.4, 1.8)
 
 [sub_resource type="Gradient" id="Gradient_06lh1"]
 offsets = PackedFloat32Array(0, 0.012658228, 1)
@@ -44,6 +59,15 @@ wheels = [NodePath("WheelFL"), NodePath("WheelRL"), NodePath("WheelFR"), NodePat
 acceleration = 800.0
 acceleration_curve = SubResource("Curve_cnaw2")
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
+
+[node name="CarMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41802406, 0)
+visible = false
+mesh = SubResource("BoxMesh_5457m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38324356, 1.130686)
+mesh = SubResource("BoxMesh_jvck6")
 
 [node name="WheelFL" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, -0.2, -1.326)
@@ -149,6 +173,7 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
+top_level = true
 current = true
 script = ExtResource("6_72krn")
 
