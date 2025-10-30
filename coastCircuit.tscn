@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://5n40x15ougeh"]
+
+[ext_resource type="Script" uid="uid://db8s7pwxs5ydr" path="res://textures/coast_circuit.gd" id="1_dgmew"]
+[ext_resource type="ArrayMesh" path="res://meshes/coastMesh.mesh" id="1_yl37a"]
+[ext_resource type="Texture2D" uid="uid://lqa4bum8ib25" path="res://textMap_COAST.png" id="2_d2vag"]
+[ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="3_d2vag"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_21epx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21epx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dgmew"]
+sky_material = SubResource("ProceduralSkyMaterial_21epx")
+
+[sub_resource type="Environment" id="Environment_8c2h8"]
+background_mode = 2
+sky = SubResource("Sky_dgmew")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21epx"]
+albedo_texture = ExtResource("2_d2vag")
+
+[sub_resource type="Curve3D" id="Curve3D_dgmew"]
+closed = true
+_data = {
+"points": PackedVector3Array(-11.256592, 0.3438263, -4.513008, 11.256592, -0.3438263, 4.513008, 50.79039, -5.283126, 99.824745, -12.826908, 2.913312, 4.69899, 12.826908, -2.913312, -4.69899, 75.56719, -3.4324865, 111.43455, -3.030014, 3.8146973e-05, 7.4171753, 3.030014, -3.8146973e-05, -7.4171753, 110.04956, 0, 85.74968, -0.6378021, -8.392334e-05, 13.796379, 0.6378021, 8.392334e-05, -13.796379, 132.111, 0, 53.322025, 8.346008, -3.8146973e-05, 7.201851, -8.346008, 3.8146973e-05, -7.201851, 113.15042, 0.8206787, 14.524389, 9.376198, -0.0069465637, 4.862647, -9.376198, 0.0069465637, -4.862647, 84.82644, 0.06709099, 8.438553, -3.0863113, 0.22529793, 12.182259, 3.0863113, -0.22529793, -12.182259, 67.60678, -1.5588493, -17.03782, -10.295021, -0.6795387, 6.8148766, 10.295021, 0.6795387, -6.8148766, 101.097626, -1.7922096, -37.238647, 9.231567, 0.061908722, 12.690392, -9.231567, -0.061908722, -12.690392, 106.52898, -3.454214, -76.28963, 11.550209, -3.8146973e-05, -2.8050537, -11.550209, 3.8146973e-05, 2.8050537, 71.44332, -3.183361, -81.87143, 11.663094, -8.392334e-05, -0.5308151, -11.663094, 8.392334e-05, 0.5308151, 29.052437, -1.8956966, -79.059784, 17.592472, -8.392334e-05, -6.00972, -17.592472, 8.392334e-05, 6.00972, -3.1985245, -12.407541, -71.1588, 7.3207855, -1.8671398, -9.031202, -7.3207855, 1.8671398, 9.031202, -54.49801, -15.821487, -37.40215, 1.8139343, 2.3983784, -21.978144, -1.8139343, -2.3983784, 21.978144, -64.52544, -16.009094, 1.3637085, -10.123009, 0, -26.994675, 10.123009, 0, 26.994675, -71.685905, -13.51403, 72.19839, -11.739046, -1.8453369, -1.1483612, 11.739046, 1.8453369, 1.1483612, -12.223253, -9.533455, 95.17583, -4.390209, -0.33647442, -0.29969788, 4.390209, 0.33647442, 0.29969788, 29.582508, -5.877963, 91.268005),
+"tilts": PackedFloat32Array(0, 0, 0, 0, -0.31891817, 0.29039124, 0.6588074, 0, -0.10227851, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
+
+[node name="CoastalCliffs" type="Node3D"]
+script = ExtResource("1_dgmew")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.2221956e-08, 1, 5.9604645e-08, -1.1313339e-08, -5.9604645e-08, 1, 1, 4.2221956e-08, 1.1313341e-08, 133.0374, 609.3913, 11.855225)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8c2h8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.78338677, 0.77290297, 0.6053045, 1)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -948.82715, -50.93502, -941.88385)
+mesh = ExtResource("1_yl37a")
+surface_material_override/0 = SubResource("StandardMaterial3D_21epx")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.08520508, 68.228035, 0.19830322)
+curve = SubResource("Curve3D_dgmew")
+
+[node name="Road" parent="." instance=ExtResource("3_d2vag")]
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Car" parent="." instance=ExtResource("4_21epx")]
+transform = Transform3D(0.1253505, 0, 0.9921125, 0, 1, 0, -0.9921125, 0, 0.1253505, 104.20293, 47.502792, 367.36996)

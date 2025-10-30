@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://df682eju3u7rs"]
+
+[ext_resource type="Script" uid="uid://b4w2s1bqa2cnc" path="res://city.gd" id="1_hpa3k"]
+[ext_resource type="ArrayMesh" path="res://hilbert_city.mesh" id="2_m7k8b"]
+
+[node name="City" type="Node3D"]
+script = ExtResource("1_hpa3k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.874408, 0, 0.48519132, 0, 1, 0, -0.48519132, 0, -0.874408, -32.631866, 62.192585, 13.923981)
+mesh = ExtResource("2_m7k8b")
