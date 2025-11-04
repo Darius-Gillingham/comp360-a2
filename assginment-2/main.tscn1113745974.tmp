@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=17 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cxojhkgjhpc1o" path="res://textures/DariusAdd.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://dp1wtkdf5bqhj" path="res://pathfollower.gd" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,15 +37,14 @@ height = 19.172
 closed = true
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(-12.827, 0, 4.699, 12.827, 0, -4.699, 75.567, 0, 111.435, -3.030014, 3.8146973e-05, 7.4171753, 3.030014, -3.8146973e-05, -7.4171753, 109.09238, -0.5639496, 85.33526, -0.6378021, -8.392334e-05, 13.796379, 0.6378021, 8.392334e-05, -13.796379, 132.111, 0, 53.322025, 9.376198, -0.0069465637, 4.862647, -9.376198, 0.0069465637, -4.862647, 84.82644, 0.06709099, 8.438553, -10.295, 0, 6.815, 10.295021, 0.6795387, -6.8148766, 101.098, 0, -37.239, 9.231567, 0.061908722, 12.690392, -9.231567, -0.061908722, -12.690392, 106.529, 0, -76.29, 11.550209, -3.8146973e-05, -2.8050537, -11.550209, 3.8146973e-05, 2.8050537, 71.443, 0, -81.871, 11.663094, -8.392334e-05, -0.5308151, -11.663094, 8.392334e-05, 0.5308151, 29.052, 0, -79.06, 17.592472, -8.392334e-05, -6.00972, -17.592472, 8.392334e-05, 6.00972, -3.199, 0, -71.159, 0, 0, 0, 0, 0, 0, -32.936, 3.0517578e-05, -54.893112, 7.321, 0, -9.031, -7.321, 0, 9.031, -54.498, 0, -37.402, 1.814, 0, -21.978, -1.814, 0, 21.978, -64.525, 0, 1.364, -10.123009, 0, -26.994675, 10.123009, 0, 26.994675, -71.686, 0, 72.198),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(-11.256592, 0.3438263, -4.513008, 11.256592, -0.3438263, 4.513008, 50.79039, -5.283126, 99.824745, -12.826908, 2.913312, 4.69899, 12.826908, -2.913312, -4.69899, 75.56719, -3.4324865, 111.43455, -3.030014, 3.8146973e-05, 7.4171753, 3.030014, -3.8146973e-05, -7.4171753, 110.04956, 0, 85.74968, -0.6378021, -8.392334e-05, 13.796379, 0.6378021, 8.392334e-05, -13.796379, 132.111, 0, 53.322025, 8.346008, -3.8146973e-05, 7.201851, -8.346008, 3.8146973e-05, -7.201851, 113.15042, 0.8206787, 14.524389, 9.376198, -0.0069465637, 4.862647, -9.376198, 0.0069465637, -4.862647, 84.82644, 0.06709099, 8.438553, -3.0863113, 0.22529793, 12.182259, 3.0863113, -0.22529793, -12.182259, 67.60678, -1.5588493, -17.03782, -10.295021, -0.6795387, 6.8148766, 10.295021, 0.6795387, -6.8148766, 101.097626, -1.7922096, -37.238647, 9.231567, 0.061908722, 12.690392, -9.231567, -0.061908722, -12.690392, 106.52898, -3.454214, -76.28963, 11.550209, -3.8146973e-05, -2.8050537, -11.550209, 3.8146973e-05, 2.8050537, 71.44332, -3.183361, -81.87143, 11.663094, -8.392334e-05, -0.5308151, -11.663094, 8.392334e-05, 0.5308151, 29.052437, -1.8956966, -79.059784, 17.592472, -8.392334e-05, -6.00972, -17.592472, 8.392334e-05, 6.00972, -3.1985245, -12.407541, -71.1588, 7.3207855, -1.8671398, -9.031202, -7.3207855, 1.8671398, 9.031202, -54.49801, -15.821487, -37.40215, 1.8139343, 2.3983784, -21.978144, -1.8139343, -2.3983784, 21.978144, -64.52544, -16.009094, 1.3637085, -10.123009, 0, -26.994675, 10.123009, 0, 26.994675, -71.685905, -13.51403, 72.19839, -11.739046, -1.8453369, -1.1483612, 11.739046, 1.8453369, 1.1483612, -12.223253, -9.533455, 95.17583, -4.390209, -0.33647442, -0.29969788, 4.390209, 0.33647442, 0.29969788, 29.582508, -5.877963, 91.268005),
+"tilts": PackedFloat32Array(0, 0, 0, 0, -0.31891817, 0.29039124, 0.6588074, 0, -0.10227851, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 13
-
-[sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
+point_count = 17
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
-size = Vector3(1, 1, 0.7651367)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mycd"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
@@ -88,7 +86,7 @@ skeleton = NodePath("../..")
 [node name="Track" type="Node" parent="."]
 
 [node name="Path3D" type="Path3D" parent="Track"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08520508, 96.528725, 0.19830322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08520508, 113.23154, 0.19830322)
 curve = SubResource("Curve3D_7mycd")
 
 [node name="Road" parent="Track" instance=ExtResource("4_lquwl")]
@@ -107,30 +105,22 @@ path_u_distance = 0.0
 path_joined = false
 
 [node name="Car" parent="Track" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -61.644173, 97.675964, 8.268679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.644173, 97.675964, 8.268679)
 mass = 100.0
-
-[node name="Path3D2" type="Path3D" parent="Track"]
-transform = Transform3D(0.97, 0, 0, 0, 1.735, 0, 0, 0, 0.97, 0.08520508, 99.73802, 0.19830322)
-curve = SubResource("Curve3D_7mycd")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Track/Path3D2"]
-transform = Transform3D(-1.0259297, 0.0008433687, 0.10139002, 0.00084747415, 1.0309314, 8.687796e-12, -0.10138998, 8.334798e-05, -1.02593, -63.5999, 0.2789154, -9.13427)
-progress = 452.0388
-script = ExtResource("7_272bh")
-speed = 0.017
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Track/Path3D2/PathFollow3D"]
-transform = Transform3D(1.0499603, -0.00916286, -2.2351742e-08, 0.009162815, 1.04996, 5.122274e-09, 0, 0, 1.0499994, -0.8134537, -1.6770172, 1.2252655)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Track/Path3D2/PathFollow3D/CharacterBody3D"]
-transform = Transform3D(1.5, 2.3739593e-09, -6.233165e-07, -1.7804695e-08, 0.2, -2.2979108e-09, 3.1165825e-07, 1.5319455e-10, 3, 0, 0, 0)
-mesh = SubResource("BoxMesh_7mycd")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Track/Path3D2/PathFollow3D/CharacterBody3D"]
-transform = Transform3D(1.495, 3.340033e-09, -3.884236e-07, -2.459778e-08, 0.203, -1.1379537e-09, 1.485149e-07, 5.908079e-11, 3.91, 0, 0, 0)
-shape = SubResource("BoxShape3D_7mycd")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(0.97, 0, 0, 0, 0.97, 0, 0, 0, 0.97, 0.08520508, 115.82978, 0.19830322)
+curve = SubResource("Curve3D_7mycd")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.148212, 98.99551, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_7mycd")
+skeleton = NodePath("../..")
