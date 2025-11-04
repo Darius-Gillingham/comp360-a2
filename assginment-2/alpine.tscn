@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://duib2r3s0atxl"]
+
+[ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="1_k8u83"]
+[ext_resource type="Script" uid="uid://cgbp73ntsbmyb" path="res://alpine.gd" id="1_po1q1"]
+[ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="2_4era8"]
+[ext_resource type="ArrayMesh" path="res://meshes/IceSpikes.mesh" id="2_tvsfe"]
+[ext_resource type="Texture2D" uid="uid://w1oh42kid4lg" path="res://textures/spikesTexture.png" id="3_4era8"]
+[ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="3_jif4c"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Car.tscn" id="4_tvsfe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
+sky_top_color = Color(0.24365193, 0.56732476, 0.8639467, 1)
+sky_horizon_color = Color(1.3656585, 1.4342388, 1.49477, 1)
+ground_bottom_color = Color(0.83745575, 0.7881039, 0.73360705, 1)
+ground_horizon_color = Color(1.3656585, 1.4342388, 1.49477, 1)
+
+[sub_resource type="Sky" id="Sky_4era8"]
+sky_material = SubResource("ProceduralSkyMaterial_tvsfe")
+
+[sub_resource type="Environment" id="Environment_jif4c"]
+background_mode = 2
+background_energy_multiplier = 0.34
+sky = SubResource("Sky_4era8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jif4c"]
+albedo_texture = ExtResource("3_4era8")
+emission_enabled = true
+emission = Color(0.11027651, 0.15832713, 0.26028818, 1)
+emission_energy_multiplier = 0.83
+
+[sub_resource type="Curve3D" id="Curve3D_po1q1"]
+closed = true
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(21.033264, -4.5776367e-05, -23.977112, -21.033264, 4.5776367e-05, 23.977112, -273.82343, 0, -267.34796, -9.540588, 4.5776367e-05, -30.997742, 9.540588, -4.5776367e-05, 30.997742, -229.85103, 0, -209.893, 39.43106, -4.5776367e-05, -15.0338745, -39.43106, 4.5776367e-05, 15.0338745, -299.83768, 0, -164.53473, -35.003265, -7.6293945e-05, -33.617294, 35.003265, 7.6293945e-05, 33.617294, -326.62268, 0, -90.44745, -39.525085, -3.0517578e-05, 20.964638, 39.525085, 3.0517578e-05, -20.964638, -241.026, -4.5776367e-05, -83.06378, -14.006531, -9.1552734e-05, 50.794373, 14.006531, 9.1552734e-05, -50.794373, -206.04785, 7.6293945e-05, -162.38925, -16.882439, -7.6293945e-05, -37.181442, 16.882439, 7.6293945e-05, 37.181442, -91.76216, 0, -190.82616, 12.976112, -4.5776367e-05, -30.286583, -12.976112, 4.5776367e-05, 30.286583, -90.941, 0, -100.468, -35.46657, -4.5776367e-05, -28.933258, 35.46657, 4.5776367e-05, 28.933258, -84.607, 0, -0.256, -47.0347, -3.0517578e-05, 6.682129, 47.0347, 3.0517578e-05, -6.682129, 19.765747, -4.5776367e-05, 27.11335, -21.994995, 7.6293945e-05, 18.699627, 21.994995, -7.6293945e-05, -18.699627, 159.97452, -4.5776367e-05, -14.887062, 6.760681, -4.5776367e-05, 35.078682, -6.760681, 4.5776367e-05, -35.078682, 149.94666, 0, -85.560936, -8.310455, 0.00016784668, 68.748566, 8.310455, -0.00016784668, -68.748566, -17.114609, -4.5776367e-05, -116.957504, -10.911682, 4.5776367e-05, 39.963013, 10.911682, -4.5776367e-05, -39.963013, 146.3616, 0, -201.03815, 38.28206, 7.6293945e-05, 32.88803, -38.28206, -7.6293945e-05, -32.88803, 68.703186, 0, -269.87204, 57.248024, -4.5776367e-05, 8.747162, -57.248024, 4.5776367e-05, -8.747162, -12.723839, 0, -311.93982, 21.675423, 7.6293945e-05, 25.881653, -21.675423, -7.6293945e-05, -25.881653, -93.075935, 0.26992798, -337.2736, 34.40239, -4.5776367e-05, 0.9544983, -34.40239, 4.5776367e-05, -0.9544983, -171.63968, 0, -359.11285, -7.6461487, -7.6293945e-05, -53.92444, 7.6461487, 7.6293945e-05, 53.92444, -374.18497, 0, -323.92368, -9.139618, -7.6293945e-05, -37.800873, 9.139618, 7.6293945e-05, 37.800873, -182.2443, 0, -303.5363),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
+
+[node name="AlpineSpikes" type="Node3D"]
+script = ExtResource("1_po1q1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jif4c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 10.992065, 384.52356, -657.74866)
+light_color = Color(0.9999998, 0.93133295, 0.67230755, 1)
+light_energy = 0.404
+shadow_enabled = true
+
+[node name="Node3D" parent="." instance=ExtResource("1_k8u83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.47972, 173.86227, -75.947014)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="IceSpikes" type="MeshInstance3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -2406.4968, 0, -3161.3733)
+mesh = ExtResource("2_tvsfe")
+surface_material_override/0 = SubResource("StandardMaterial3D_jif4c")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.20499, 163.44759, -78.157845)
+curve = SubResource("Curve3D_po1q1")
+
+[node name="Car" parent="." instance=ExtResource("4_tvsfe")]
+transform = Transform3D(-0.4268844, 0.049450442, -0.90295297, 0.04592171, 0.998401, 0.032967478, 0.90313935, -0.027391814, -0.4284726, 36.337914, 176.15552, -63.394993)
+
+[node name="Node3D2" parent="." instance=ExtResource("3_jif4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.47972, 173.86227, -75.947014)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Node3D3" parent="." instance=ExtResource("2_4era8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.47972, 173.86227, -75.947014)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 551.8927, -245.34314)

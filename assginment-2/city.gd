@@ -1,8 +1,8 @@
 
 extends Node3D
 
-@export var order: int = 4                    # number of vertices = 4^order
-@export var spacing: float = 20.0             # grid step between consecutive Hilbert points
+@export var order: int = 6                    # number of vertices = 4^order
+@export var spacing: float = 30.0             # grid step between consecutive Hilbert points
 @export var max_height: float = 60.0          # tallest building cap
 @export var export_path: String = "res://hilbert_city.mesh"
 
@@ -46,12 +46,12 @@ func build_city_mesh() -> ArrayMesh:
 	# --- Material setup ---
 	var mat := StandardMaterial3D.new()
 	mat.vertex_color_use_as_albedo = true
-	mat.albedo_color = Color(1, 1, 1)
+	mat.albedo_color = Color(1.0, 1.0, 1.0, 1.0)
 	st.set_material(mat)
 
 	# --- General layout parameters ---
 	var city_extent: float = n * spacing
-	var road_height: float = 0.05
+	var road_height: float = 0.00
 	var road_width: float = spacing * 0.2
 	var road_offset: float = spacing * 0.5
 	var carve_clearance: float = road_width * 0.25

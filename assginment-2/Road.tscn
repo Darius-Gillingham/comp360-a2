@@ -11,5 +11,5 @@ texture_filter = 0
 [node name="Node3D" type="CSGPolygon3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088083744, -0.0077011585, 0.006151676)
 use_collision = true
-polygon = PackedVector2Array(-2, 0, -2, 0.25, 2, 0.25, 2, 0)
+polygon = PackedVector2Array(-8, 0, -8, 0.25, 8, 0.25, 8, 0)
 material = SubResource("StandardMaterial3D_y2mm7")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ptus0ssln4q3"]
+
+[ext_resource type="Script" uid="uid://djysnxclsqoqd" path="res://city_race.gd" id="1_cv3le"]
+[ext_resource type="ArrayMesh" uid="uid://dq8v7uv0wvwtw" path="res://hilbert_city.mesh" id="1_qupi4"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Car.tscn" id="2_lqyn5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lqyn5"]
+sky_top_color = Color(0.22616121, 0.0040619466, 0.117774196, 1)
+sky_horizon_color = Color(0.30025566, 0.23698084, 0.2564089, 1)
+ground_horizon_color = Color(0.30025566, 0.23698084, 0.2564089, 1)
+
+[sub_resource type="Sky" id="Sky_cv3le"]
+sky_material = SubResource("ProceduralSkyMaterial_lqyn5")
+
+[sub_resource type="Environment" id="Environment_alfgn"]
+background_mode = 2
+sky = SubResource("Sky_cv3le")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_cv3le")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_alfgn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 94.16431, 291.58807, 0)
+light_color = Color(0.20933351, 0.1858342, 0.55532116, 1)
+light_energy = 4.637
+shadow_enabled = true
+
+[node name="HilbertCity" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 182.26509, 136.11627, 126.000305)
+mesh = ExtResource("1_qupi4")
+
+[node name="Car" parent="." instance=ExtResource("2_lqyn5")]
+transform = Transform3D(0.99997926, 0, -0.0064228326, 0, 1, 0, 0.0064228326, 0, 0.99997926, -479.46844, 138.03035, 918.38696)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 645.74475, 132.7618, 1088.1975)
+use_collision = true
+polygon = PackedVector2Array(-500, 0, -100, 1, 100, 1, 100, 0)
+depth = 500.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.005410537, 0.9999854, 0, -0.9999854, 0.005410537, 0, 640.1903, -0.99519634)
+fov = 1.0

@@ -2,12 +2,11 @@ extends RigidBody3D
 
 @export var wheels: Array[RaycastWheel]
 @export var acceleration := 400.0
-@export var max_speed := 20.0
+@export var max_speed := 75.0
 @export var acceleration_curve : Curve
-@export var tire_turn_speed := 2.0
+@export var tire_turn_speed := 1.5
 @export var tire_max_turn_degrees := 25
 @export var show_debug := false
-
 
 @export var skid_marks: Array[GPUParticles3D]
 

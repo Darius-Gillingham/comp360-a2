@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://qlgibrusdo3s"]
+
+[node name="Node3D" type="CSGPolygon3D"]
+use_collision = true
+polygon = PackedVector2Array(8, 0, 8, 1, 8.5, 1, 8.5, 0)

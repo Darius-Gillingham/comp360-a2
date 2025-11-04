@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
-[ext_resource type="Curve" path="res://tire_front_curve.tres" id="4_mjudg"]
+[ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="4_mjudg"]
 [ext_resource type="PackedScene" uid="uid://bawltqpr7tgkg" path="res://textures/wheel-racing(1).glb" id="4_td361"]
 [ext_resource type="PackedScene" uid="uid://bqgjxd3o4c8ii" path="res://textures/race-future(1).glb" id="5_td361"]
-[ext_resource type="Curve" path="res://tire_back_curve.tres" id="5_v0hk8"]
+[ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_v0hk8"]
 [ext_resource type="Script" uid="uid://dnihxwwm2dgwx" path="res://camera_follow_car.gd" id="6_72krn"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
@@ -151,5 +151,21 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
 script = ExtResource("6_72krn")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82773006, 0, -2.186275)
+light_color = Color(0.98518974, 0.9189434, 0.5812272, 1)
+light_energy = 10.131
+light_indirect_energy = 1.566
+spot_range = 16.41354
+spot_angle = 25.3125
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7968408, 0, -2.186275)
+light_color = Color(0.98518974, 0.9189434, 0.5812272, 1)
+light_energy = 10.131
+light_indirect_energy = 1.566
+spot_range = 16.41354
+spot_angle = 23.567818
 
 [editable path="race-future"]

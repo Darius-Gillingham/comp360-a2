@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=13 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textMap_DUNE.png" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://cxojhkgjhpc1o" path="res://DariusAdd.png" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="6_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,23 +24,13 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_texture = ExtResource("2_0xm2m")
 
-[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
-size = Vector3(8.245, 4.685, 0.235)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
-albedo_texture = ExtResource("3_h2yge")
-uv1_scale = Vector3(3, 2, 2.5)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_efxa6"]
-height = 19.172
-
-[sub_resource type="Curve3D" id="Curve3D_1bvp3"]
+[sub_resource type="Curve3D" id="Curve3D_272bh"]
 closed = true
 _data = {
-"points": PackedVector3Array(0.8538599, -0.81399393, -5.1386695, -0.8538599, 0.81399393, 5.1386695, 9.83958, -5.1432567, 2.5383773, 2.116174, 0.30821848, -0.8168354, -2.116174, -0.30821848, 0.8168354, 3.8790054, -4.3130984, 9.734209, 2.4265208, -0.14896488, 1.1310062, -2.4265208, 0.14896488, -1.1310062, -2.5693727, -4.1964474, 8.345558, -2.2163832, 0.057926178, 3.8807027, 2.2163832, -0.057926178, -3.8807027, -6.0588045, -4.50636, -3.691107, -4.100567, 1.2555947, 1.1335945, 4.100567, -1.2555947, -1.1335945, 1.0469685, -3.7797499, -13.178258, -4.9746246, 0.5475278, -1.8537683, 4.9746246, -0.5475278, 1.8537683, 9.296894, -2.6428976, -14.873191, 2.371877, 0.12024815, -2.2131958, -1.375001, -0.06970906, 1.2830119, 14.030162, -3.2254076, -5.290572),
-"tilts": PackedFloat32Array(-0.0085999, 0, 0, 0, 0, 0, 0.17512277)
+"points": PackedVector3Array(-20.328186, 0, -79.08151, 20.328186, 0, 79.08151, -276.441, 0, 196.243, -252.75603, 19.111511, -27.908813, 252.75603, -19.111511, 27.908813, 188.3647, -1.5258789e-05, 238.1662, -36.249207, -6.1035156e-05, 84.32544, 36.249207, 6.1035156e-05, -84.32544, 639.474, 0, 296.363, 5.8791504, 0, 87.01056, -5.8791504, 0, -87.01056, 403.248, 0, 50.67, -0.94247437, -4.5776367e-05, 72.15723, 0.94247437, 4.5776367e-05, -72.15723, 450.8171, 0, -99.95441, 19.535492, -4.5776367e-05, 68.4592, -19.535492, 4.5776367e-05, -68.4592, 372.37076, 0, -297.00455, -123.26141, 0, -9.917572, 123.26141, 0, 9.917572, 486.296, 0, -411.024, -41.42578, 0, 40.920807, 41.42578, 0, -40.920807, 771.9177, 4.5776367e-05, -463.99225, -49.46216, 0, 125.90375, 49.46216, 0, -125.90375, 832.6213, 4.5776367e-05, -718.048, 34.491577, -6.1035156e-05, 80.71387, -34.491577, 6.1035156e-05, -80.71387, 835.061, 0, -1024.608, 29.088196, -4.5776367e-05, -83.30939, -29.088196, 4.5776367e-05, 83.30939, 671.923, 0, -1005.974, 59.394287, 7.6293945e-05, -62.647644, -59.394287, -7.6293945e-05, 62.647644, 634.78064, 0, -787.46344, 48.43564, 0, 56.402954, -48.43564, 0, -56.402954, 426.62717, 0, -827.1254, 24.010437, 6.1035156e-05, 174.96545, -24.010437, -6.1035156e-05, -174.96545, 405.745, 0, -1244.881, 36.087814, 0, -129.40125, -36.087814, 0, 129.40125, 69.891, 0, -1256.269, 6.929016, 4.5776367e-05, -280.1991, -6.929016, -4.5776367e-05, 280.1991, 130.73912, 0, -875.08704, 52.83618, 0, -69.79248, -52.83618, 0, 69.79248, -15.251, 0, -418.557, 20.723679, 6.1035156e-05, 30.192383, -20.723679, -6.1035156e-05, -30.192383, -166.482, 0, -420.248, 34.815796, 0, 44.806763, -34.815796, 0, -44.806763, -191.049, 0, -686.377, 52.25699, 0, -49.135254, -52.25699, 0, 49.135254, -391.466, 0, -672.131, -31.442291, 0, -48.433838, 31.442291, 0, 48.433838, -349.575, 0, -285.872, -13.267248, 6.1035156e-05, -59.55768, 13.267248, -6.1035156e-05, 59.55768, 3.852, 0, -252.847, 51.591034, -3.0517578e-05, -52.852997, -51.591034, 3.0517578e-05, 52.852997, -32.767, 0, 58.818),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 23
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
@@ -48,44 +39,41 @@ script = ExtResource("1_7mycd")
 environment = SubResource("Environment_lquwl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 3.61306, 33.5919, 5.814049)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 219.68118, 33.5919, 5.814049)
 light_color = Color(1, 1, 0.827451, 1)
 light_energy = 0.34
 shadow_enabled = true
 
 [node name="Dune" type="MeshInstance3D" parent="."]
-transform = Transform3D(11.475, 0, 0, 0, 11.475, 0, 0, 0, 11.475, -1340.7534, 3.5516472, -1517.85)
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -1755.3833, 7.367321, -2401.1953)
 mesh = ExtResource("1_ig7tw")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
 
-[node name="Car" parent="Dune" instance=ExtResource("4_1bvp3")]
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
 
-[node name="Sign" type="Node" parent="."]
+[node name="Car" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(-0.12843253, -0.0061088745, -0.9916994, 0.039811876, 0.9991433, -0.011310669, 0.9909189, -0.040934063, -0.12807932, 159.3718, 151.44968, 542.2845)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91010284, 7.911541, -15.009311)
-mesh = SubResource("BoxMesh_kek77")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_4c57u")
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 147.92073, 303.3435)
+curve = SubResource("Curve3D_272bh")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8244148, 1.5816178, -16.260452)
-mesh = SubResource("CylinderMesh_efxa6")
-skeleton = NodePath("../..")
+[node name="Road" parent="." instance=ExtResource("4_lquwl")]
+collision_layer = 17
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7400618, 1.5816178, -16.260452)
-mesh = SubResource("CylinderMesh_efxa6")
-skeleton = NodePath("../..")
-
-[node name="Track" type="Node" parent="."]
-
-[node name="Path3D" type="Path3D" parent="Track"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -30.85888, 107.52907, 6.311615)
-curve = SubResource("Curve3D_1bvp3")
-
-[node name="Node3D" parent="Track" instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088083744, 4.3177843, 0.006151676)
+[node name="Node3D" parent="." instance=ExtResource("5_272bh")]
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
@@ -98,9 +86,15 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Car" parent="Track" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.951687, 99.38894, 8.268679)
-mass = 100.0
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
+[node name="Node3D2" parent="." instance=ExtResource("6_5vw27")]
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false

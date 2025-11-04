@@ -1,8 +1,10 @@
 extends Control
 
 var tracks = [
-	{"name": "Coast Track", "scene": "res://coastCircuit.tscn", "preview": "res://textures/CoastPreview.png"},	
-	{"name": "Dune Track", "scene": "res://main.tscn", "preview": "res://textures/DunePreview.png"}	
+	#{"name": "Coast Track", "scene": "res://coastCircuit.tscn", "preview": "res://textures/CoastPreview.png"},	
+	{"name": "Dune Track", "scene": "res://main.tscn", "preview": "res://textures/DunePreview.png"},
+	{"name": "Alpine Track", "scene": "res://alpine.tscn", "preview": "res://textures/alpinePreview.png"},
+	{"name": "City Freeroam", "scene": "res://cityRace.tscn", "preview": "res://textures/cityPreview.png"}	
 ]
 var current_track = 0
 
