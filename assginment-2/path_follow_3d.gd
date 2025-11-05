@@ -1,6 +1,6 @@
 extends PathFollow3D
 
-@export var speed := 0.01  # normalized units per second
+@export var speed := 0.005  # normalized units per second
 
 func _process(delta):
 	# advance along the path

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Toyota/Toyota.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
@@ -57,9 +57,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.92643666, 0.37645063, 0, -0.37645063, 0.92643666, 0, 9.592348, -11.640558)
 
-[node name="Car" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.12843253, -0.0061088745, -0.9916994, 0.039811876, 0.9991433, -0.011310669, 0.9909189, -0.040934063, -0.12807932, 159.3718, 151.44968, 542.2845)
-
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 147.92073, 303.3435)
 curve = SubResource("Curve3D_272bh")
@@ -69,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.51395, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.1679155, 0.06272387, -3.9830723, 0.12932819, 0.9968986, 0.23722279, 2.4909995, -0.047529027, -0.2808106, 141.90285, 3.088259, 233.98079)
+transform = Transform3D(-0.1679155, 0.06272387, -3.9830716, 0.12932819, 0.9968986, 0.23722275, 2.4909995, -0.047529027, -0.28081056, 141.90285, 3.088259, 233.98079)
 progress = 435.05173
 v_offset = -0.05
 script = ExtResource("5_5vw27")
@@ -123,3 +120,6 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+
+[node name="Car" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(-0.0104368655, 0, -0.9999455, 0, 1, 0, 0.9999455, 0, -0.0104368655, 145.04086, 157.92606, 533.6673)
