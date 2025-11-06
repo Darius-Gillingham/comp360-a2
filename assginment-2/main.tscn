@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=15 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Toyota/Toyota.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
@@ -33,9 +33,8 @@ _data = {
 }
 point_count = 23
 
-[sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
+size = Vector3(1.8476563, 1, 4.6606445)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
@@ -62,23 +61,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 147.92073, 303.3435)
 curve = SubResource("Curve3D_272bh")
 
 [node name="Path3DOpponent" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.51395, 303.0387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.1679155, 0.06272387, -3.9830716, 0.12932819, 0.9968986, 0.23722275, 2.4909995, -0.047529027, -0.28081056, 141.90285, 3.088259, 233.98079)
+transform = Transform3D(-0.1679155, 0.06272387, -3.9830713, 0.12932819, 0.9968986, 0.23722273, 2.4909995, -0.047529027, -0.28081053, 141.90285, 3.088259, 233.98079)
 progress = 435.05173
 v_offset = -0.05
 script = ExtResource("5_5vw27")
 speed = 0.015
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3DOpponent/PathFollow3D"]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 0, 0, 1, 0, 0.00038146973, 0)
+[node name="CarOpponent" parent="Path3DOpponent/PathFollow3D" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.42, -1.8626451e-09, 0, 0, 0.965, -1.3969839e-09, 0, 1.1059456e-08, 0.25, 0.20358276, -0.5000305, 2.162056)
+script = null
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3DOpponent/PathFollow3D/CharacterBody3D"]
-mesh = SubResource("BoxMesh_5vw27")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3DOpponent/PathFollow3D/CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3DOpponent/PathFollow3D/CarOpponent"]
+transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
 shape = SubResource("BoxShape3D_kek77")
 
 [node name="Road" parent="." instance=ExtResource("4_lquwl")]
@@ -122,4 +120,5 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Car" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.0104368655, 0, -0.9999455, 0, 1, 0, 0.9999455, 0, -0.0104368655, 145.04086, 157.92606, 533.6673)
+transform = Transform3D(-0.0104368655, 0, -0.9999455, 0, 1, 0, 0.9999455, 0, -0.0104368655, 145.04086, 152.36713, 533.6673)
+max_speed = 100.0

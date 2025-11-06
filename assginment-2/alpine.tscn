@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duib2r3s0atxl"]
+[gd_scene load_steps=16 format=3 uid="uid://duib2r3s0atxl"]
 
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="1_k8u83"]
 [ext_resource type="Script" uid="uid://cgbp73ntsbmyb" path="res://alpine.gd" id="1_po1q1"]
@@ -6,7 +6,8 @@
 [ext_resource type="ArrayMesh" path="res://meshes/IceSpikes.mesh" id="2_tvsfe"]
 [ext_resource type="Texture2D" uid="uid://w1oh42kid4lg" path="res://textures/spikesTexture.png" id="3_4era8"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="3_jif4c"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Car.tscn" id="4_tvsfe"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_tvsfe"]
+[ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="8_fkll6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
 sky_top_color = Color(0.24365193, 0.56732476, 0.8639467, 1)
@@ -38,6 +39,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 20
+
+[sub_resource type="BoxMesh" id="BoxMesh_pas47"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbn2r"]
 
 [node name="AlpineSpikes" type="Node3D"]
 script = ExtResource("1_po1q1")
@@ -107,3 +112,23 @@ path_joined = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 551.8927, -245.34314)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.07088, 175.45729, -75.35095)
+curve = SubResource("Curve3D_po1q1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-1.6644933, 0.0015788381, -2.9845216, 0.0059308554, 0.9999964, -3.5606759e-06, 1.8653224, -0.0017706694, -2.6631947, -87.042435, -0.4820404, -2.3330383)
+progress = 809.1339
+v_offset = -0.05
+script = ExtResource("8_fkll6")
+speed = 0.03
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D2/PathFollow3D"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 0, 0, 1, 0, 0.00038146973, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D2/PathFollow3D/CharacterBody3D"]
+mesh = SubResource("BoxMesh_pas47")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CharacterBody3D"]
+shape = SubResource("BoxShape3D_rbn2r")
