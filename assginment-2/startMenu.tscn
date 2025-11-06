@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo6yvrohvdk8a"]
+[gd_scene load_steps=5 format=3 uid="uid://bo6yvrohvdk8a"]
 
 [ext_resource type="Script" uid="uid://csykqesal1mr5" path="res://start_menu.gd" id="1_gqihx"]
 [ext_resource type="Texture2D" uid="uid://temu725g8sre" path="res://textures/CoastPreview.png" id="2_rr6mw"]
 [ext_resource type="Texture2D" uid="uid://cyp4nna27um7" path="res://textures/icon.svg" id="3_rr6mw"]
+[ext_resource type="Texture2D" uid="uid://ctigkydfxjlqf" path="res://SportsCar/Sport_Lamborginhi Aventador_diffuse.jpg" id="4_4gtxw"]
 
 [node name="LevelSelectionScreen" type="Control"]
 layout_mode = 3
@@ -23,39 +24,39 @@ color = Color(0.20412439, 0.0005192345, 0.44262058, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 66.0
-offset_right = 589.0
-offset_bottom = 89.0
+offset_left = 240.0
+offset_top = 98.0
+offset_right = 333.0
+offset_bottom = 121.0
 text = "Select Track"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TrackSelector" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 399.0
-offset_top = 93.0
-offset_right = 694.0
-offset_bottom = 344.0
+offset_left = 142.0
+offset_top = 121.0
+offset_right = 437.0
+offset_bottom = 372.0
 
-[node name="leftTrack" type="Button" parent="HBoxContainer"]
+[node name="leftTrack" type="Button" parent="TrackSelector"]
 layout_mode = 2
 text = "<"
 
-[node name="Preview" type="TextureRect" parent="HBoxContainer"]
+[node name="Preview" type="TextureRect" parent="TrackSelector"]
 layout_mode = 2
 texture = ExtResource("2_rr6mw")
 expand_mode = 2
 
-[node name="rightTrack" type="Button" parent="HBoxContainer"]
+[node name="rightTrack" type="Button" parent="TrackSelector"]
 layout_mode = 2
 text = ">
 "
 
 [node name="playButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 437.0
-offset_right = 638.0
-offset_bottom = 619.0
+offset_left = 471.0
+offset_top = 438.0
+offset_right = 650.0
+offset_bottom = 620.0
 text = "PLAY"
 icon = ExtResource("3_rr6mw")
 icon_alignment = 1
@@ -63,10 +64,47 @@ vertical_icon_alignment = 0
 
 [node name="TrackLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 348.0
-offset_right = 626.0
-offset_bottom = 397.0
+offset_left = 221.0
+offset_top = 372.0
+offset_right = 368.0
+offset_bottom = 421.0
 text = "placeholder
 "
 horizontal_alignment = 1
+
+[node name="CarSelector" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 121.0
+offset_right = 994.0
+offset_bottom = 372.0
+
+[node name="leftCar" type="Button" parent="CarSelector"]
+layout_mode = 2
+text = "<"
+
+[node name="CarPreview" type="TextureRect" parent="CarSelector"]
+layout_mode = 2
+texture = ExtResource("4_4gtxw")
+expand_mode = 2
+
+[node name="rightCar" type="Button" parent="CarSelector"]
+layout_mode = 2
+text = ">
+"
+
+[node name="CarLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 372.0
+offset_right = 901.0
+offset_bottom = 395.0
+text = "placeholder"
+
+[node name="selectCar" type="Label" parent="."]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 98.0
+offset_right = 886.0
+offset_bottom = 121.0
+text = "Select Car"

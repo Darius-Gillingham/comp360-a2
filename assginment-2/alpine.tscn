@@ -79,8 +79,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jif4c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.20499, 163.44759, -78.157845)
 curve = SubResource("Curve3D_po1q1")
 
-[node name="Car" parent="." instance=ExtResource("4_tvsfe")]
+[node name="AncientCar" parent="." instance=ExtResource("4_tvsfe")]
 transform = Transform3D(-0.4268844, 0.049450442, -0.90295297, 0.04592171, 0.998401, 0.032967478, 0.90313935, -0.027391814, -0.4284726, 36.337914, 176.15552, -63.394993)
+visible = false
 
 [node name="Node3D2" parent="." instance=ExtResource("3_jif4c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.47972, 173.86227, -75.947014)
@@ -118,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.07088, 175.45729, -75.350
 curve = SubResource("Curve3D_po1q1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-1.6644933, 0.0015788381, -2.9845216, 0.0059308554, 0.9999964, -3.5606759e-06, 1.8653224, -0.0017706694, -2.6631947, -87.042435, -0.4820404, -2.3330383)
+transform = Transform3D(-1.6644937, 0.0015788381, -2.9845216, 0.0059308563, 0.9999964, -3.5606759e-06, 1.8653226, -0.0017706694, -2.6631947, -87.042435, -0.050002888, -2.3330348)
 progress = 809.1339
 v_offset = -0.05
 script = ExtResource("8_fkll6")
@@ -132,3 +133,6 @@ mesh = SubResource("BoxMesh_pas47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CharacterBody3D"]
 shape = SubResource("BoxShape3D_rbn2r")
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 14.567152, 175.98773, -83.95486)

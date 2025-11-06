@@ -125,4 +125,3 @@ visible = false
 max_speed = 100.0
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.67424, 151.9721, 533.03394)

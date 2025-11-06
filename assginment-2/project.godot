@@ -18,6 +18,7 @@ config/icon="res://textures/icon.svg"
 [autoload]
 
 DebugDraw="*res://debug_draw.tscn"
+GlobalData="*res://GlobalData.gd"
 
 [input]
 
