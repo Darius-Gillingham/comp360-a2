@@ -1,7 +1,7 @@
 
 extends Node3D
 
-@export var order: int = 6                    # number of vertices = 4^order
+@export var order: int = 4                   # number of vertices = 4^order
 @export var spacing: float = 30.0             # grid step between consecutive Hilbert points
 @export var max_height: float = 60.0          # tallest building cap
 @export var export_path: String = "res://hilbert_city.mesh"
@@ -11,24 +11,27 @@ extends Node3D
 @export var window_color: Color = Color(0.3, 0.5, 0.9)
 @export var ground_color: Color = Color(0.95, 0.95, 0.95)
 @export var road_color: Color = Color(0.05, 0.05, 0.05)
-
 func _ready() -> void:
 	var mesh: ArrayMesh = build_city_mesh()
 
-	# --- Visual mesh instance ---
+	# Visual mesh
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
 	add_child(mi)
 
-	# --- Static collision for physics ---
+	# Create collision from the mesh AFTER generating normals
 	var body := StaticBody3D.new()
 	var shape := mesh.create_trimesh_shape()
-	var cs := CollisionShape3D.new()
-	cs.shape = shape
-	body.add_child(cs)
-	add_child(body)
+	if shape == null:
+		push_error("Failed to generate collision: mesh has no valid surface.")
+	else:
+		var cs := CollisionShape3D.new()
+		cs.shape = shape
+		body.add_child(cs)
+		add_child(body)
+		print("Collision generated successfully for full city mesh.")
 
-	# --- Save mesh to disk ---
+	# Save to disk
 	var err := ResourceSaver.save(mesh, export_path)
 	if err != OK:
 		push_error("City save failed: " + str(err))
@@ -51,7 +54,7 @@ func build_city_mesh() -> ArrayMesh:
 
 	# --- General layout parameters ---
 	var city_extent: float = n * spacing
-	var road_height: float = 0.00
+	var road_height: float = 0.1
 	var road_width: float = spacing * 0.2
 	var road_offset: float = spacing * 0.5
 	var carve_clearance: float = road_width * 0.25
@@ -104,6 +107,7 @@ func build_city_mesh() -> ArrayMesh:
 		_add_horizontal_road_lane(st, j, n, road_offset, road_width, road_half_w, road_height, half_extent, carve_clearance, aabbs)
 
 	st.generate_normals()
+	st.index()
 	return st.commit()
 
 func _cmp_intervals(a, b) -> bool:

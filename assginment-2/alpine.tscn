@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://duib2r3s0atxl"]
+[gd_scene load_steps=15 format=3 uid="uid://duib2r3s0atxl"]
 
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="1_k8u83"]
 [ext_resource type="Script" uid="uid://cgbp73ntsbmyb" path="res://alpine.gd" id="1_po1q1"]
@@ -6,7 +6,6 @@
 [ext_resource type="ArrayMesh" path="res://meshes/IceSpikes.mesh" id="2_tvsfe"]
 [ext_resource type="Texture2D" uid="uid://w1oh42kid4lg" path="res://textures/spikesTexture.png" id="3_4era8"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="3_jif4c"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_tvsfe"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="8_fkll6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
@@ -78,10 +77,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jif4c")
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.20499, 163.44759, -78.157845)
 curve = SubResource("Curve3D_po1q1")
-
-[node name="AncientCar" parent="." instance=ExtResource("4_tvsfe")]
-transform = Transform3D(-0.4268844, 0.049450442, -0.90295297, 0.04592171, 0.998401, 0.032967478, 0.90313935, -0.027391814, -0.4284726, 36.337914, 176.15552, -63.394993)
-visible = false
 
 [node name="Node3D2" parent="." instance=ExtResource("3_jif4c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.47972, 173.86227, -75.947014)
