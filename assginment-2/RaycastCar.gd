@@ -11,6 +11,7 @@ extends RigidBody3D
 @export var skid_marks: Array[GPUParticles3D]
 
 
+
 var motor_input := 0
 var hand_break := false
 var is_slipping := false
@@ -84,7 +85,9 @@ func _physics_process(delta: float) -> void:
 			center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 			center_of_mass = Vector3.DOWN * 0.5
 			skid_marks[id].emitting = false
+		
 
+				
 #Control the wheels traction allowing turning and drifting
 func _do_single_wheel_traction(ray: RaycastWheel, idx: int) -> void:
 	#Don't do anything unless touching ground (airborne condition)
@@ -117,7 +120,7 @@ func _do_single_wheel_traction(ray: RaycastWheel, idx: int) -> void:
 		x_traction = 0.1
 	
 	
-	var gravity := -get_gravity().y
+	var gravity := 9.8
 	var x_force := -steer_side_dir * steering_x_vel * x_traction * ((mass * 9.81)/4.0)
 	
 	# Z force traction

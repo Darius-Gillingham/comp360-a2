@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://duq45g0wsaw82"]
+[gd_scene load_steps=14 format=3 uid="uid://da3kgm5peybdl"]
 
-[ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
-[ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
-[ext_resource type="PackedScene" uid="uid://bsk0708yvj1mb" path="res://Toyota/ToyotaWheel.glb" id="4_lpol0"]
-[ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="4_mjudg"]
-[ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_v0hk8"]
-[ext_resource type="PackedScene" uid="uid://cqhsxy08aw060" path="res://SportsCar/Sport.glb" id="7_kihn8"]
+[ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_e73ty"]
+[ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_gajlu"]
+[ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_7jt6c"]
+[ext_resource type="PackedScene" uid="uid://b2i51g4o0bq8u" path="res://Police/policetire.glb" id="4_e73ty"]
+[ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_anjbp"]
+[ext_resource type="PackedScene" uid="uid://dinu7c1l8aa56" path="res://Police/Police Car.glb" id="6_ei0ie"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
-_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
 point_count = 6
 metadata/_snap_enabled = true
 
@@ -35,82 +35,81 @@ orientation = 1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_td361"]
 points = PackedVector3Array(0.6, 0.099995986, 0.11533666, 0.54996085, 0.45942426, 0.58970094, 0.54996085, 0.44716468, 0.6829076, 0.54996085, 0.41125283, 0.7696054, 0.54996085, 0.14996302, 1.3296258, 0.6, 0, 0.11533666, 0.6, 0.099995986, -0.484518, 0.06695378, 0.6325442, 0.046863675, 0.54996085, 0.45942426, -0.9302434, 0.3499217, 0.5360156, -1.3298862, -0.55007833, 0.44716468, 0.6829076, -0.55007833, 0.41125283, 0.7696054, -0.55007833, 0.14996302, 1.3296258, 0.54996085, 0, 1.3296258, 0.6, 0, -0.484518, 0.54996085, 0.10767369, -1.2887503, 0.54996085, 0.19299534, -1.2775551, 0.54996085, 0.27967918, -1.2416263, 0.54996085, 0.35416535, -1.1843486, 0.54996085, 0.41125283, -1.1098874, 0.54996085, 0.44716468, -1.0231897, 0.06695378, 0.6325442, -0.25332403, -0.06707126, 0.6325442, 0.046863675, 0.3499217, 0, -1.3298862, -0.35003918, 0.5360156, -1.3298862, -0.55007833, 0.45942426, 0.58970094, -0.6, 0.099995986, 0.11533666, -0.55007833, 0, 1.3296258, -0.06707126, 0.6325442, -0.25332403, -0.35003918, 0, -1.3298862, -0.55007833, 0.10767369, -1.2887503, -0.55007833, 0.19299534, -1.2775551, -0.55007833, 0.27967918, -1.2416263, -0.55007833, 0.35416535, -1.1843486, -0.55007833, 0.41125283, -1.1098874, -0.55007833, 0.44716468, -1.0231897, -0.55007833, 0.45942426, -0.9302434, -0.6, 0, 0.11533666, -0.6, 0.099995986, -0.484518, -0.6, 0, -0.484518)
 
-[node name="SportsCar" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
+[node name="Car" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
 mass = 50.0
 linear_damp_mode = 1
-script = ExtResource("1_06lh1")
+script = ExtResource("1_e73ty")
 wheels = [NodePath("WheelFL"), NodePath("WheelRL"), NodePath("WheelFR"), NodePath("WheelRR")]
 acceleration = 800.0
-max_speed = 25.0
+max_speed = 50.0
 acceleration_curve = SubResource("Curve_cnaw2")
-tire_turn_speed = 0.75
-tire_max_turn_degrees = 10
-show_debug = true
+tire_turn_speed = 0.8
+tire_max_turn_degrees = 8
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 
 [node name="WheelFL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9408447, -0.11, -1.4234601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.15, -1.35)
 enabled = false
-script = ExtResource("3_72krn")
-spring_strength = 800.0
+script = ExtResource("2_gajlu")
 spring_damping = 100.0
-rest_dist = 0.2
-over_extend = 0.1
-wheel_radius = 0.3
+rest_dist = 0.1
+wheel_radius = 0.2
 is_steer = true
-grip_curve = ExtResource("4_mjudg")
+grip_curve = ExtResource("3_7jt6c")
 show_debug = true
 
-[node name="Root Scene" parent="WheelFL" instance=ExtResource("4_lpol0")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.24809289, 0, 0)
+[node name="TirePivot" type="Node3D" parent="WheelFL"]
+
+[node name="policetire" parent="WheelFL/TirePivot" instance=ExtResource("4_e73ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72426987, -0.25314295, -1.142305)
 
 [node name="WheelFR" type="RayCast3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.85, -0.11, -1.4422656)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.85, -0.15, -1.35)
 enabled = false
-script = ExtResource("3_72krn")
-spring_strength = 800.0
+script = ExtResource("2_gajlu")
 spring_damping = 100.0
-rest_dist = 0.2
-over_extend = 0.1
-wheel_radius = 0.3
+rest_dist = 0.1
+wheel_radius = 0.2
 is_steer = true
-grip_curve = ExtResource("4_mjudg")
+grip_curve = ExtResource("3_7jt6c")
 show_debug = true
 
-[node name="Root Scene2" parent="WheelFR" instance=ExtResource("4_lpol0")]
-transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, -0.30066296, 0, 4.1412765e-08)
+[node name="TirePivot2" type="Node3D" parent="WheelFR"]
+
+[node name="policetire" parent="WheelFR/TirePivot2" instance=ExtResource("4_e73ty")]
+transform = Transform3D(-0.9999997, 0, -8.742274e-08, 0, 1, 0, 8.742274e-08, 0, -0.9999997, -0.695145, -0.25314295, 1.1524827)
 
 [node name="WheelRL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9408447, -0.11, 1.3408203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.15, 1.45)
 enabled = false
-script = ExtResource("3_72krn")
-spring_strength = 800.0
+script = ExtResource("2_gajlu")
 spring_damping = 100.0
-rest_dist = 0.2
-over_extend = 0.1
-wheel_radius = 0.3
+rest_dist = 0.1
+wheel_radius = 0.2
 is_motor = true
-grip_curve = ExtResource("5_v0hk8")
+grip_curve = ExtResource("5_anjbp")
 show_debug = true
 
-[node name="Root Scene2" parent="WheelRL" instance=ExtResource("4_lpol0")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.22955957, 0, 0)
+[node name="TirePivot3" type="Node3D" parent="WheelRL"]
+
+[node name="policetire" parent="WheelRL/TirePivot3" instance=ExtResource("4_e73ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72426987, -0.25314295, -1.142305)
 
 [node name="WheelRR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.11, 1.3073044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.15, 1.45)
 enabled = false
-script = ExtResource("3_72krn")
-spring_strength = 800.0
+script = ExtResource("2_gajlu")
 spring_damping = 100.0
-rest_dist = 0.2
-over_extend = 0.1
-wheel_radius = 0.3
+rest_dist = 0.1
+wheel_radius = 0.2
 is_motor = true
-grip_curve = ExtResource("5_v0hk8")
+grip_curve = ExtResource("5_anjbp")
 show_debug = true
 
-[node name="Root Scene3" parent="WheelRR" instance=ExtResource("4_lpol0")]
-transform = Transform3D(-0.24999999, 0, -3.7748947e-08, 0, 0.25, 0, 3.7748947e-08, 0, -0.24999999, -0.262, 0, 0)
+[node name="tirepivot" type="Node3D" parent="WheelRR"]
+
+[node name="policetire" parent="WheelRR/tirepivot" instance=ExtResource("4_e73ty")]
+transform = Transform3D(-0.9999997, 0, -8.742274e-08, 0, 1, 0, 8.742274e-08, 0, -0.9999997, -0.695145, -0.25314295, 1.1524827)
 
 [node name="SkidMarks" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7223876, 0)
@@ -144,17 +143,23 @@ process_material = SubResource("ParticleProcessMaterial_72krn")
 draw_pass_1 = SubResource("QuadMesh_mjudg")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.75, 0, -1.5298986e-07, 0, 1.75, 0, 1.5298986e-07, 0, -1.75, -0.06843544, -0.11533402, -0.04835811)
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, -0.06843544, -0.2509128, 0.10074815)
 shape = SubResource("ConvexPolygonShape3D_td361")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
 
-[node name="CAR Model(1)" parent="." instance=ExtResource("7_kihn8")]
-transform = Transform3D(-0.01, 0, -8.7422775e-10, 0, 0.01, 0, 8.7422775e-10, 0, -0.01, -0.29736334, -0.39911342, -0.4381714)
+[node name="Police Car" parent="." instance=ExtResource("6_ei0ie")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 0, -0.41223532, 0)
 
-[node name="Lamborghini_Aventador_Glass" parent="CAR Model(1)" index="1"]
+[node name="Cop_BackWheels_Cylinder_001" parent="Police Car" index="1"]
 visible = false
 
-[editable path="CAR Model(1)"]
+[node name="Cop_FrontLeftWheel_Cylinder_011" parent="Police Car" index="2"]
+visible = false
+
+[node name="Cop_FrontRightWheel_Cylinder_012" parent="Police Car" index="3"]
+visible = false
+
+[editable path="Police Car"]

@@ -8,8 +8,12 @@ var tracks = [
 ]
 
 var cars = [
-	{"name": "toyota", "scene": "res://Toyota/Toyota.tscn", "preview": "res://Toyota/Root Scene_Palette.jpg"},
-	{"name": "sporty", "scene": "res://SportsCar/SportCar.tscn", "preview": "res://SportsCar/Sport_Lamborginhi Aventador_diffuse.jpg"}
+	{"name": "toyota", "scene": "res://Toyota/Toyota.tscn", "preview": "res://Toyota/ToyotaSnapshot.png"},
+	{"name": "sporty", "scene": "res://SportsCar/SportCar.tscn", "preview": "res://SportsCar/SportsCarSnapshot.png"},
+	{"name": "buggy", "scene": "res://Buggy/Buggy.tscn", "preview": "res://Buggy/BuggySnapshot.png"},
+	{"name": "golf cart", "scene": "res://GolfCart/GolfCart.tscn", "preview": "res://GolfCart/GolfCartSnapshot.png"},
+	{"name": "police", "scene": "res://Police/Police.tscn", "preview": "res://Police/PoliceSnapshot.png"}
+	
 ]
 var current_track = 0
 var current_car = 0
