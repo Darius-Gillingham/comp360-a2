@@ -122,11 +122,6 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Car" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.0104368655, 0, -0.9999455, 0, 1, 0, 0.9999455, 0, -0.0104368655, 145.04086, 152.36713, 533.6673)
-visible = false
-max_speed = 100.0
-
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.67424, 151.9721, 533.03394)
 

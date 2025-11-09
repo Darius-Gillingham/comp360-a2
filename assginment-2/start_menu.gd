@@ -4,12 +4,17 @@ var tracks = [
 	#{"name": "Coast Track", "scene": "res://coastCircuit.tscn", "preview": "res://textures/CoastPreview.png"},	
 	{"name": "Dune Track", "scene": "res://main.tscn", "preview": "res://textures/DunePreview.png"},
 	{"name": "Alpine Track", "scene": "res://alpine.tscn", "preview": "res://textures/alpinePreview.png"},
-	{"name": "City Freeroam", "scene": "res://cityRace.tscn", "preview": "res://textures/cityPreview.png"}	
+	{"name": "City Freeroam", "scene": "res://city.tscn", "preview": "res://textures/cityPreview.png"},
+	{"name": "Coastal Hilbert (Slow)", "scene": "res://coastCircuit.tscn", "preview": "res://textures/CoastPreview.png"}
 ]
 
 var cars = [
-	{"name": "toyota", "scene": "res://Toyota/Toyota.tscn", "preview": "res://Toyota/Root Scene_Palette.jpg"},
-	{"name": "sporty", "scene": "res://SportsCar/SportCar.tscn", "preview": "res://SportsCar/Sport_Lamborginhi Aventador_diffuse.jpg"}
+	{"name": "toyota", "scene": "res://Toyota/Toyota.tscn", "preview": "res://Toyota/ToyotaSnapshot.png"},
+	{"name": "sporty", "scene": "res://SportsCar/SportCar.tscn", "preview": "res://SportsCar/SportsCarSnapshot.png"},
+	{"name": "buggy", "scene": "res://Buggy/Buggy.tscn", "preview": "res://Buggy/BuggySnapshot.png"},
+	{"name": "golf cart", "scene": "res://GolfCart/GolfCart.tscn", "preview": "res://GolfCart/GolfCartSnapshot.png"},
+	{"name": "police", "scene": "res://Police/Police.tscn", "preview": "res://Police/PoliceSnapshot.png"}
+	
 ]
 var current_track = 0
 var current_car = 0

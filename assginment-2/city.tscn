@@ -1,11 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://df682eju3u7rs"]
 
-[ext_resource type="Script" uid="uid://b4w2s1bqa2cnc" path="res://city.gd" id="1_hpa3k"]
-[ext_resource type="ArrayMesh" uid="uid://dq8v7uv0wvwtw" path="res://hilbert_city.mesh" id="2_m7k8b"]
+[ext_resource type="Script" uid="uid://bxbrcdoyfismy" path="res://cityMain.gd" id="1_m7k8b"]
+[ext_resource type="ArrayMesh" uid="uid://8kdqgsq17m5d" path="res://hilbert_city.mesh" id="2_m7k8b"]
 
 [node name="City" type="Node3D"]
-script = ExtResource("1_hpa3k")
+script = ExtResource("1_m7k8b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 179.05801, 107.15306)
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.874408, 0, 0.48519132, 0, 1, 0, -0.48519132, 0, -0.874408, -30.798836, 17.270985, 80.8392)
 mesh = ExtResource("2_m7k8b")
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -121.62297, 18.581406, 273.75317)
