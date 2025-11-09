@@ -15,18 +15,19 @@ func _physics_process(delta: float) -> void:
 		apply_tornade_force(car)
 	
 func car_entered(body: Node3D):
+	print(body.has_meta("is_opponent"))
 	if body is RigidBody3D and (not body.has_meta("is_opponent") or not body.get_meta("is_opponent")):
 		cars_in_radius.append(body)
 		
 func car_exited(body: Node3D):
 	if body is RigidBody3D:
-		cars_in_radius.erase(body)
+		var i = cars_in_radius.find(body)
+		if i != -1:
+			cars_in_radius.remove_at(i)
 		
 func apply_tornade_force(body: RigidBody3D):
 	var v_attract = global_position - body.global_position
 	var distance_to_tornado = max(0.5, v_attract.length())
-	
-	print(distance_to_tornado)
 	
 	if distance_to_tornado > 6:
 		v_attract = v_attract.normalized() * min((attract_force/ distance_to_tornado), attract_force)

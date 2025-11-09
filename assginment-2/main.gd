@@ -20,6 +20,7 @@ func _ready():
 	init_weather()
 
 func init_weather():
+	print("init weather")
 	var dust_devil_scene = load("res://particles/DustDevil.tscn")
 	var track_length = path.curve.get_baked_length()
 	
