@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://v5hkr45y6w5k"]
+[gd_scene load_steps=17 format=3 uid="uid://v5hkr45y6w5k"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_t8nfs"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_f2ksi"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_neudu"]
 [ext_resource type="PackedScene" uid="uid://baku1koqenetc" path="res://GolfCart/golftire.glb" id="4_s0w0n"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_y032j"]
+[ext_resource type="Script" uid="uid://bkvwe25cnjvv7" path="res://GolfCart/camera_3d.gd" id="6_jqqf0"]
+[ext_resource type="Texture2D" uid="uid://ydf7uektsqkb" path="res://GolfCart/RobertConsole.png" id="7_xuh33"]
+[ext_resource type="Texture2D" uid="uid://dev43yb25utm0" path="res://GolfCart/RobertWheel.png" id="8_1y5hi"]
 [ext_resource type="PackedScene" uid="uid://b0fc67u14g0da" path="res://GolfCart/golfbody.glb" id="8_jqqf0"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
@@ -158,6 +161,21 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
+script = ExtResource("6_jqqf0")
+
+[node name="Console" type="CanvasLayer" parent="Camera3D"]
+
+[node name="RobertConsole" type="Sprite2D" parent="Camera3D/Console"]
+position = Vector2(576, 324)
+scale = Vector2(1.28, 1.2806324)
+texture = ExtResource("7_xuh33")
+
+[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
+layer = 2
+
+[node name="RobertWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
+position = Vector2(326, 447)
+texture = ExtResource("8_1y5hi")
 
 [node name="golfbody" parent="." instance=ExtResource("8_jqqf0")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 0.7349243, 0)

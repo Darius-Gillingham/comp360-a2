@@ -1,11 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://da3kgm5peybdl"]
+[gd_scene load_steps=18 format=3 uid="uid://da3kgm5peybdl"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_e73ty"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_gajlu"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_7jt6c"]
 [ext_resource type="PackedScene" uid="uid://b2i51g4o0bq8u" path="res://Police/policetire.glb" id="4_e73ty"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_anjbp"]
+[ext_resource type="Script" uid="uid://wbxl3shudroe" path="res://Police/camera_3d.gd" id="6_anjbp"]
 [ext_resource type="PackedScene" uid="uid://dinu7c1l8aa56" path="res://Police/Police Car.glb" id="6_ei0ie"]
+[ext_resource type="Texture2D" uid="uid://clriq1gffnivc" path="res://Police/DariusConsole.png" id="7_ei0ie"]
+[ext_resource type="Texture2D" uid="uid://bn5o722pxtk31" path="res://Police/DariusWheel.png" id="8_lo250"]
+[ext_resource type="Texture2D" uid="uid://b2qyculbq1kpy" path="res://Police/DariusWindshield.png" id="9_08aui"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -149,6 +153,30 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
+script = ExtResource("6_anjbp")
+
+[node name="Console" type="CanvasLayer" parent="Camera3D"]
+layer = 2
+
+[node name="DariusConsole" type="Sprite2D" parent="Camera3D/Console"]
+position = Vector2(575.99994, 324)
+scale = Vector2(1.2799999, 1.2806325)
+texture = ExtResource("7_ei0ie")
+
+[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
+layer = 3
+
+[node name="DariusWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
+position = Vector2(316, 466)
+texture = ExtResource("8_lo250")
+
+[node name="Windshield" type="CanvasLayer" parent="Camera3D"]
+
+[node name="DariusWindshield" type="Sprite2D" parent="Camera3D/Windshield"]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(576, 324)
+scale = Vector2(1.2800001, 1.2806324)
+texture = ExtResource("9_08aui")
 
 [node name="Police Car" parent="." instance=ExtResource("6_ei0ie")]
 transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 0, -0.41223532, 0)

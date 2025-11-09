@@ -1,11 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://duq45g0wsaw82"]
+[gd_scene load_steps=18 format=3 uid="uid://duq45g0wsaw82"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
 [ext_resource type="PackedScene" uid="uid://bsk0708yvj1mb" path="res://Toyota/ToyotaWheel.glb" id="4_lpol0"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="4_mjudg"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_v0hk8"]
+[ext_resource type="Script" uid="uid://oyvtr0fnkde6" path="res://SportsCar/camera_3d.gd" id="6_1qcft"]
+[ext_resource type="Texture2D" uid="uid://dcwbk7dp5rlht" path="res://SportsCar/RyanWheel.png" id="7_ck5hc"]
 [ext_resource type="PackedScene" uid="uid://cqhsxy08aw060" path="res://SportsCar/Sport.glb" id="7_kihn8"]
+[ext_resource type="Texture2D" uid="uid://rv5ytgv6io6c" path="res://SportsCar/RyanConsole.png" id="8_pbavi"]
+[ext_resource type="Texture2D" uid="uid://5befomem70ps" path="res://SportsCar/WindshieldRyan.png" id="9_n884w"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -150,6 +154,30 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
+script = ExtResource("6_1qcft")
+
+[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
+layer = 3
+
+[node name="RyanWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
+position = Vector2(322, 540)
+texture = ExtResource("7_ck5hc")
+
+[node name="Console" type="CanvasLayer" parent="Camera3D"]
+layer = 2
+
+[node name="RyanConsole" type="Sprite2D" parent="Camera3D/Console"]
+position = Vector2(576, 324)
+scale = Vector2(1.28, 1.2806323)
+texture = ExtResource("8_pbavi")
+
+[node name="Windshield" type="CanvasLayer" parent="Camera3D"]
+
+[node name="WindshieldRyan" type="Sprite2D" parent="Camera3D/Windshield"]
+modulate = Color(1, 1, 1, 0.4627451)
+position = Vector2(576, 324.24997)
+scale = Vector2(1.2799999, 1.2816205)
+texture = ExtResource("9_n884w")
 
 [node name="CAR Model(1)" parent="." instance=ExtResource("7_kihn8")]
 transform = Transform3D(-0.01, 0, -8.7422775e-10, 0, 0.01, 0, 8.7422775e-10, 0, -0.01, -0.29736334, -0.39911342, -0.4381714)

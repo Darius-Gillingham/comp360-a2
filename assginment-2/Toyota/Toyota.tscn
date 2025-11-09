@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://duq45g0wsaw82"]
+[gd_scene load_steps=17 format=3 uid="uid://duq45g0wsaw82"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
 [ext_resource type="PackedScene" uid="uid://bsk0708yvj1mb" path="res://Toyota/ToyotaWheel.glb" id="4_lpol0"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="4_mjudg"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_v0hk8"]
+[ext_resource type="Script" uid="uid://b5f4ms06wllfg" path="res://Toyota/camera_3d.gd" id="6_xwhop"]
+[ext_resource type="Texture2D" uid="uid://4cm5fr5afknc" path="res://Toyota/JoelInterior.png" id="7_gtx0d"]
+[ext_resource type="Texture2D" uid="uid://cgv5bjlcvaht6" path="res://Toyota/JoelWheel.png" id="8_hsvih"]
 [ext_resource type="PackedScene" uid="uid://d032j0i3dy6vc" path="res://Toyota/Root Scene.glb" id="9_u5era"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
@@ -141,6 +144,21 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
+script = ExtResource("6_xwhop")
+
+[node name="Console" type="CanvasLayer" parent="Camera3D"]
+
+[node name="JoelInterior" type="Sprite2D" parent="Camera3D/Console"]
+position = Vector2(576, 324.00003)
+scale = Vector2(1.28, 1.2806325)
+texture = ExtResource("7_gtx0d")
+
+[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
+layer = 2
+
+[node name="JoelWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
+position = Vector2(814, 580)
+texture = ExtResource("8_hsvih")
 
 [node name="Root Scene" parent="." instance=ExtResource("9_u5era")]
 transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, -0.36026907, 0)
