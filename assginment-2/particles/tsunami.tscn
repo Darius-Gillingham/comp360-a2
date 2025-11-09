@@ -1,12 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://66trs7j1qjin"]
+[gd_scene load_steps=23 format=3 uid="uid://66trs7j1qjin"]
 
+[ext_resource type="Script" uid="uid://dpgpbo0fw5fpc" path="res://particles/tsunami_handler.gd" id="1_nlm27"]
 [ext_resource type="Shader" uid="uid://cyljst0nc0q1x" path="res://particles/tsnuami_particles.gdshader" id="1_pnhfy"]
-[ext_resource type="Script" uid="uid://bpierwvtj8pbm" path="res://particles/tsuanim_particles.gd" id="2_vajms"]
+[ext_resource type="Script" uid="uid://bdmmu2tuy4khg" path="res://particles/tsunami_collision.gd" id="4_hwxn7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vajms"]
 shader = ExtResource("1_pnhfy")
 shader_parameter/width = 2000.0
-shader_parameter/height = 300.0
+shader_parameter/height = 400.0
 shader_parameter/curvature = 100.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnhfy"]
@@ -92,9 +93,14 @@ rings = 16
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vajms"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_q43g8"]
+size = Vector3(2000, 300, 100)
+
+[node name="Tsunami" type="Node3D"]
+script = ExtResource("1_nlm27")
 metadata/rise_time = 0.0
 metadata/fall_time = 0.0
+metadata/half_height = 400.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -138.66193)
@@ -105,47 +111,55 @@ lifetime = 2.0
 trail_enabled = true
 process_material = SubResource("ShaderMaterial_vajms")
 draw_pass_1 = SubResource("SphereMesh_vajms")
-script = ExtResource("2_vajms")
 
 [node name="GPUParticles3D4" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.064460754)
 amount = 500
+visibility_aabb = AABB(-1000, -4, -4, 2000, 400, 100)
 local_coords = true
 transform_align = 1
 trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ShaderMaterial_vajms")
 draw_pass_1 = SubResource("RibbonTrailMesh_4ysgj")
-script = ExtResource("2_vajms")
 
 [node name="GPUParticles3D5" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.064460754)
 amount = 100
+visibility_aabb = AABB(-1000, -4, -4, 2000, 400, 100)
 local_coords = true
 transform_align = 1
 trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ShaderMaterial_vajms")
 draw_pass_1 = SubResource("RibbonTrailMesh_odavw")
-script = ExtResource("2_vajms")
 
 [node name="GPUParticles3D6" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.064460754)
 amount = 100
+visibility_aabb = AABB(-1000, -4, -4, 2000, 400, 100)
 local_coords = true
 transform_align = 1
 trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ShaderMaterial_vajms")
 draw_pass_1 = SubResource("RibbonTrailMesh_vrad3")
-script = ExtResource("2_vajms")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 281.19702, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 391.68958, 0)
 amount = 500
+visibility_aabb = AABB(-1000, -4, -4, 2000, 50, 100)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_vgyuu")
 draw_pass_1 = SubResource("SphereMesh_4ysyc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("ArrayMesh_vajms")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_hwxn7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 185.36661, 0)
+shape = SubResource("BoxShape3D_q43g8")
