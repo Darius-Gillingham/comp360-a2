@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1shauqvv5i24"]
+[gd_scene load_steps=17 format=3 uid="uid://c1shauqvv5i24"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_lo0fn"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_jf0wr"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_b3n5k"]
-[ext_resource type="PackedScene" uid="uid://mw1k2w6tdhak" path="res://assginment-2/Wagon/wagon_wheel.glb" id="4_k3cb7"]
+[ext_resource type="PackedScene" uid="uid://mw1k2w6tdhak" path="res://Wagon/wagon_wheel.glb" id="4_k3cb7"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_61epn"]
-[ext_resource type="PackedScene" uid="uid://cmiue4d3cnbga" path="res://assginment-2/Wagon/wagon_wheelless.glb" id="7_rvlrp"]
+[ext_resource type="Script" uid="uid://dw6sy3w41d2eq" path="res://Wagon/camera_3d.gd" id="6_hj30q"]
+[ext_resource type="Texture2D" uid="uid://crg2amb0in516" path="res://Wagon/EmmaWagon.png" id="6_rvlrp"]
+[ext_resource type="Texture2D" uid="uid://cdlnk2ad1feso" path="res://Wagon/EmmaHandle.png" id="7_hj30q"]
+[ext_resource type="PackedScene" uid="uid://cmiue4d3cnbga" path="res://Wagon/wagon_wheelless.glb" id="7_rvlrp"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -150,6 +153,22 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
+script = ExtResource("6_hj30q")
+
+[node name="Console" type="CanvasLayer" parent="Camera3D"]
+layer = 2
+
+[node name="EmmaWagon" type="Sprite2D" parent="Camera3D/Console"]
+position = Vector2(576, 323.99997)
+scale = Vector2(1.28, 1.2806324)
+texture = ExtResource("6_rvlrp")
+
+[node name="Handle" type="CanvasLayer" parent="Camera3D"]
+
+[node name="EmmaHandle" type="Sprite2D" parent="Camera3D/Handle"]
+position = Vector2(576, 282)
+scale = Vector2(1.065, 1.0513834)
+texture = ExtResource("7_hj30q")
 
 [node name="wagon_wheelless" parent="." instance=ExtResource("7_rvlrp")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0153205395, 0)

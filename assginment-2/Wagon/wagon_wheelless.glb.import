@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmiue4d3cnbga"
-path="res://.godot/imported/wagon_wheelless.glb-84e688f789d166ba75c0f9712e0fd66e.scn"
+path="res://.godot/imported/wagon_wheelless.glb-d23f44d4582f06c9d74385c4b7aa63f3.scn"
 
 [deps]
 
-source_file="res://assginment-2/Wagon/wagon_wheelless.glb"
-dest_files=["res://.godot/imported/wagon_wheelless.glb-84e688f789d166ba75c0f9712e0fd66e.scn"]
+source_file="res://Wagon/wagon_wheelless.glb"
+dest_files=["res://.godot/imported/wagon_wheelless.glb-d23f44d4582f06c9d74385c4b7aa63f3.scn"]
 
 [params]
 

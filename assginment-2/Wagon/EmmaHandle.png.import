@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3g60n1qcvetk"
-path="res://.godot/imported/WagonSnapshot.png-811f6570131ad5f1149686a8586bc20b.ctex"
+uid="uid://cdlnk2ad1feso"
+path="res://.godot/imported/EmmaHandle.png-108272fc526c140171c3caca192d9b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wagon/WagonSnapshot.png"
-dest_files=["res://.godot/imported/WagonSnapshot.png-811f6570131ad5f1149686a8586bc20b.ctex"]
+source_file="res://Wagon/EmmaHandle.png"
+dest_files=["res://.godot/imported/EmmaHandle.png-108272fc526c140171c3caca192d9b1a.ctex"]
 
 [params]
 

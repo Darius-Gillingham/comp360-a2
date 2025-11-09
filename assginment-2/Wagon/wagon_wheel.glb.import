@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://mw1k2w6tdhak"
-path="res://.godot/imported/wagon_wheel.glb-4b2ac26e0dd234e2e726d0c247c5ee0d.scn"
+path="res://.godot/imported/wagon_wheel.glb-52cca2b9030d54984e7f9c977c97b5d6.scn"
 
 [deps]
 
-source_file="res://assginment-2/Wagon/wagon_wheel.glb"
-dest_files=["res://.godot/imported/wagon_wheel.glb-4b2ac26e0dd234e2e726d0c247c5ee0d.scn"]
+source_file="res://Wagon/wagon_wheel.glb"
+dest_files=["res://.godot/imported/wagon_wheel.glb-52cca2b9030d54984e7f9c977c97b5d6.scn"]
 
 [params]
 
