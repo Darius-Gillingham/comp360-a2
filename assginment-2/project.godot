@@ -20,6 +20,10 @@ config/icon="res://textures/icon.svg"
 DebugDraw="*res://debug_draw.tscn"
 GlobalData="*res://GlobalData.gd"
 
+[dotnet]
+
+project/assembly_name="Assginment2"
+
 [input]
 
 turn_right={
