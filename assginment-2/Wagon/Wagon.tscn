@@ -35,10 +35,10 @@ material = SubResource("StandardMaterial3D_v0hk8")
 size = Vector2(0.6, 1)
 orientation = 1
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_td361"]
-points = PackedVector3Array(0.6, 0.099995986, 0.11533666, 0.54996085, 0.45942426, 0.58970094, 0.54996085, 0.44716468, 0.6829076, 0.54996085, 0.41125283, 0.7696054, 0.54996085, 0.14996302, 1.3296258, 0.6, 0, 0.11533666, 0.6, 0.099995986, -0.484518, 0.06695378, 0.6325442, 0.046863675, 0.54996085, 0.45942426, -0.9302434, 0.3499217, 0.5360156, -1.3298862, -0.55007833, 0.44716468, 0.6829076, -0.55007833, 0.41125283, 0.7696054, -0.55007833, 0.14996302, 1.3296258, 0.54996085, 0, 1.3296258, 0.6, 0, -0.484518, 0.54996085, 0.10767369, -1.2887503, 0.54996085, 0.19299534, -1.2775551, 0.54996085, 0.27967918, -1.2416263, 0.54996085, 0.35416535, -1.1843486, 0.54996085, 0.41125283, -1.1098874, 0.54996085, 0.44716468, -1.0231897, 0.06695378, 0.6325442, -0.25332403, -0.06707126, 0.6325442, 0.046863675, 0.3499217, 0, -1.3298862, -0.35003918, 0.5360156, -1.3298862, -0.55007833, 0.45942426, 0.58970094, -0.6, 0.099995986, 0.11533666, -0.55007833, 0, 1.3296258, -0.06707126, 0.6325442, -0.25332403, -0.35003918, 0, -1.3298862, -0.55007833, 0.10767369, -1.2887503, -0.55007833, 0.19299534, -1.2775551, -0.55007833, 0.27967918, -1.2416263, -0.55007833, 0.35416535, -1.1843486, -0.55007833, 0.41125283, -1.1098874, -0.55007833, 0.44716468, -1.0231897, -0.55007833, 0.45942426, -0.9302434, -0.6, 0, 0.11533666, -0.6, 0.099995986, -0.484518, -0.6, 0, -0.484518)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hj30q"]
+points = PackedVector3Array(414.694, 82.711525, 674.9304, -411.44672, 82.711525, 676.9182, 414.694, -91.98098, 674.9304, 411.36545, 82.711525, -676.9182, -411.44672, -91.98098, 676.9182, -414.69412, 82.711525, -675.0629, 411.36545, -91.98098, -676.9182, -414.69412, -91.98098, -675.0629)
 
-[node name="SportsCar" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
+[node name="Wagon" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
 mass = 50.0
 linear_damp_mode = 1
 script = ExtResource("1_lo0fn")
@@ -47,15 +47,15 @@ acceleration = 800.0
 max_speed = 25.0
 acceleration_curve = SubResource("Curve_cnaw2")
 tire_turn_speed = 0.5
-tire_max_turn_degrees = 8
+tire_max_turn_degrees = 4
 show_debug = true
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 
 [node name="WheelFL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.19566685, -0.96)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.23436257, -0.96)
 enabled = false
 script = ExtResource("2_jf0wr")
-spring_strength = 1200.0
+spring_strength = 800.0
 spring_damping = 300.0
 rest_dist = 0.2
 over_extend = 0.2
@@ -68,10 +68,10 @@ show_debug = true
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="WheelFR" type="RayCast3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.8, -0.19566685, -0.96)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.8, -0.23436257, -0.96)
 enabled = false
 script = ExtResource("2_jf0wr")
-spring_strength = 1200.0
+spring_strength = 800.0
 spring_damping = 300.0
 rest_dist = 0.2
 over_extend = 0.2
@@ -84,10 +84,10 @@ show_debug = true
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="WheelRL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.19566685, 0.84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.23436257, 0.84)
 enabled = false
 script = ExtResource("2_jf0wr")
-spring_strength = 1200.0
+spring_strength = 800.0
 spring_damping = 300.0
 rest_dist = 0.2
 over_extend = 0.2
@@ -100,10 +100,10 @@ show_debug = true
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="WheelRR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.19566685, 0.84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.23436257, 0.84)
 enabled = false
 script = ExtResource("2_jf0wr")
-spring_strength = 1200.0
+spring_strength = 800.0
 spring_damping = 300.0
 rest_dist = 0.2
 over_extend = 0.2
@@ -146,10 +146,6 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_72krn")
 draw_pass_1 = SubResource("QuadMesh_mjudg")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.25, 0, -1.8874475e-07, 0, 1.25, 0, 1.8874475e-07, 0, -1.25, -0.06843544, 0.17272605, -0.04835811)
-shape = SubResource("ConvexPolygonShape3D_td361")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
@@ -170,5 +166,11 @@ position = Vector2(576, 282)
 scale = Vector2(1.065, 1.0513834)
 texture = ExtResource("7_hj30q")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.00205842, 0, 0, 0, 0.00205842, 0, 0, 0, 0.00205842, -0.018983161, 0.21094827, -0.045073085)
+shape = SubResource("ConvexPolygonShape3D_hj30q")
+
 [node name="wagon_wheelless" parent="." instance=ExtResource("7_rvlrp")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0153205395, 0)
+
+[editable path="wagon_wheelless"]
