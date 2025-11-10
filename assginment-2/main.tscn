@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=18 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="2_kek77"]
+[ext_resource type="PackedScene" path="res://checkpoint/checkpoint_manager.tscn" id="2_kek77"]
 [ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bv7bdychmqy4e" path="res://startingpoint.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -70,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.16791546, 0.06272386, -3.9830713, 0.12932834, 0.9968984, 0.23722275, 2.4909995, -0.04752907, -0.28081053, 141.90285, 3.088259, 233.98079)
+transform = Transform3D(-0.1679155, 0.06272385, -3.9830713, 0.12932819, 0.9968984, 0.23722273, 2.4909995, -0.04752902, -0.28081053, 141.90285, 3.088259, 233.98079)
 progress = 435.05173
 v_offset = -0.05
 script = ExtResource("5_5vw27")
@@ -131,3 +132,5 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271, 146.822, 508)
 mesh = SubResource("BoxMesh_5vw27")
+
+[node name="Area3D" parent="." instance=ExtResource("10_4c57u")]

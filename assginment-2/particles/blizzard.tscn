@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://byr8ihofbg4ey"]
+[gd_scene load_steps=0 format=3 uid="uid://byr8ihofbg4ey"]
 
 [node name="Blizzard" type="Node3D"]
 
