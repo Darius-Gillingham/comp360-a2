@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv7bdychmqy4e"]
+
+[ext_resource type="Script" uid="uid://c1xkgyseasdlc" path="res://oncollision.gd" id="1_irlhu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
+
+[sub_resource type="FontVariation" id="FontVariation_5vw27"]
+variation_embolden = -0.29
+variation_transform = Transform2D(1, 0, 0, 2.47, 0, 0)
+spacing_glyph = 10
+spacing_space = 210
+
+[sub_resource type="TextMesh" id="TextMesh_kek77"]
+text = "Start"
+font = SubResource("FontVariation_5vw27")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(0.8378502, 0.0031196247, -0.03574736, 0, 4.9998097, 0.0043632677, 0.06005785, -0.04352101, 0.4987014, 144.9097, 153.93877, 529.1097)
+script = ExtResource("1_irlhu")
+text_node_path = NodePath("StartingPost/TextStart")
+
+[node name="StartingPost" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -2.3283064e-10, 0, -7.275958e-12, 1.0000001, 0, 0, 7.450581e-09, 1.0000001, 0, 0, 0)
+mesh = SubResource("BoxMesh_5vw27")
+skeleton = NodePath("../..")
+
+[node name="Post1" type="MeshInstance3D" parent="StartingPost"]
+transform = Transform3D(0.99981534, -0.005980458, 0.011411412, 2.814454e-05, 0.9990491, 0.0043621007, -0.03225045, -0.43609744, 0.99886423, -0.39727783, -0.024957657, 32.800293)
+mesh = SubResource("BoxMesh_5vw27")
+skeleton = NodePath("../../..")
+
+[node name="Bar" type="MeshInstance3D" parent="StartingPost"]
+transform = Transform3D(1.000261, -0.4030968, -8.731149e-11, -1.36788e-09, 1.4528632e-06, -0.10037628, 0.012221053, 32.992363, 3.7252903e-09, -0.19152832, 0.45126724, 16.643555)
+mesh = SubResource("BoxMesh_5vw27")
+skeleton = NodePath("../../..")
+
+[node name="TextStart" type="MeshInstance3D" parent="StartingPost"]
+transform = Transform3D(-0.55847514, -0.099342465, -2.833742, -5.5879354e-09, 1.1356632, -0.24795808, 31.995142, -0.0017340034, -0.049463034, 0.26307678, -0.091674805, 16.38208)
+gi_mode = 2
+mesh = SubResource("TextMesh_kek77")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.558475, -0.099342465, -2.8337421, -2.2351742e-08, 1.1356635, -0.24795815, 31.99515, -0.0017339885, -0.049463034, 0.26307678, -0.31015968, 16.362915)
+shape = SubResource("BoxShape3D_5vw27")

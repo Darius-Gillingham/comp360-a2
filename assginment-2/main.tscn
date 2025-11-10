@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=18 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" path="res://startingpoint.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -70,8 +71,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.16791546, 0.06272386, -3.9830713, 0.12932834, 0.9968984, 0.23722275, 2.4909995, -0.04752907, -0.28081053, 141.90285, 3.088259, 233.98079)
-progress = 435.05173
+transform = Transform3D(-0.15373914, 0.060026508, -3.985201, 0.12883292, 0.9970493, 0.22756311, 2.4919403, -0.047843985, -0.25763014, 134.68082, 3.509514, 233.49283)
+progress = 427.80087
 v_offset = -0.05
 script = ExtResource("5_5vw27")
 speed = 0.015
@@ -126,8 +127,10 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.67424, 151.9721, 533.03394)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 134.18988, 153.05858, 537.8045)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271, 146.822, 508)
 mesh = SubResource("BoxMesh_5vw27")
+
+[node name="Area3D" parent="." instance=ExtResource("10_4c57u")]
