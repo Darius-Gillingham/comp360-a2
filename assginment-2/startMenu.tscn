@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo6yvrohvdk8a"]
+[gd_scene load_steps=8 format=3 uid="uid://bo6yvrohvdk8a"]
 
-[ext_resource type="Script" uid="uid://csykqesal1mr5" path="res://start_menu.gd" id="1_gqihx"]
+[ext_resource type="Script" uid="uid://ctvtejeo0s7nj" path="res://start_menu.gd" id="1_gqihx"]
+[ext_resource type="Texture2D" uid="uid://wohdq4vluugv" path="res://carKart.png" id="2_0nytm"]
 [ext_resource type="Texture2D" uid="uid://temu725g8sre" path="res://textures/CoastPreview.png" id="2_rr6mw"]
-[ext_resource type="Texture2D" uid="uid://cyp4nna27um7" path="res://textures/icon.svg" id="3_rr6mw"]
+[ext_resource type="Texture2D" uid="uid://dnary28jvmxmp" path="res://left.png" id="3_m2tcv"]
 [ext_resource type="Texture2D" uid="uid://ctigkydfxjlqf" path="res://SportsCar/Sport_Lamborginhi Aventador_diffuse.jpg" id="4_4gtxw"]
+[ext_resource type="Texture2D" uid="uid://dgm6obb7ygs23" path="res://right.png" id="5_3ikvq"]
+[ext_resource type="Texture2D" uid="uid://0k0htex7vowd" path="res://Go2.png" id="6_d5frb"]
 
 [node name="LevelSelectionScreen" type="Control"]
 layout_mode = 3
@@ -15,31 +18,39 @@ grow_vertical = 2
 script = ExtResource("1_gqihx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_right = 1151.0
 offset_bottom = 647.0
 color = Color(0.20412439, 0.0005192345, 0.44262058, 1)
 
+[node name="CarKart" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(576, 323.99994)
+scale = Vector2(1.2800001, 1.2806323)
+texture = ExtResource("2_0nytm")
+
 [node name="Label" type="Label" parent="."]
+z_index = 3
 layout_mode = 0
 offset_left = 240.0
-offset_top = 98.0
+offset_top = 190.0
 offset_right = 333.0
-offset_bottom = 121.0
+offset_bottom = 213.0
 text = "Select Track"
 
 [node name="TrackSelector" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 121.0
-offset_right = 437.0
-offset_bottom = 372.0
+offset_left = 60.0
+offset_top = 220.0
+offset_right = 539.0
+offset_bottom = 471.0
 
 [node name="leftTrack" type="Button" parent="TrackSelector"]
 layout_mode = 2
-text = "<"
+icon = ExtResource("3_m2tcv")
+flat = true
 
 [node name="Preview" type="TextureRect" parent="TrackSelector"]
 layout_mode = 2
@@ -48,40 +59,46 @@ expand_mode = 2
 
 [node name="rightTrack" type="Button" parent="TrackSelector"]
 layout_mode = 2
-text = ">
+text = "
 "
+icon = ExtResource("5_3ikvq")
+flat = true
 
 [node name="playButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 471.0
-offset_top = 438.0
-offset_right = 650.0
-offset_bottom = 620.0
-text = "PLAY"
-icon = ExtResource("3_rr6mw")
+offset_left = 500.0
+offset_top = 480.0
+offset_right = 679.0
+offset_bottom = 662.0
+scale = Vector2(0.8, 0.8)
+icon = ExtResource("6_d5frb")
+flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="TrackLabel" type="Label" parent="."]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 0
 offset_left = 221.0
-offset_top = 372.0
+offset_top = 480.0
 offset_right = 368.0
-offset_bottom = 421.0
+offset_bottom = 529.0
 text = "placeholder
 "
 horizontal_alignment = 1
 
 [node name="CarSelector" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 699.0
-offset_top = 121.0
-offset_right = 994.0
-offset_bottom = 372.0
+offset_left = 600.0
+offset_top = 220.0
+offset_right = 1079.0
+offset_bottom = 471.0
 
 [node name="leftCar" type="Button" parent="CarSelector"]
 layout_mode = 2
-text = "<"
+icon = ExtResource("3_m2tcv")
+flat = true
 
 [node name="CarPreview" type="TextureRect" parent="CarSelector"]
 layout_mode = 2
@@ -90,21 +107,24 @@ expand_mode = 2
 
 [node name="rightCar" type="Button" parent="CarSelector"]
 layout_mode = 2
-text = ">
+text = "
 "
+icon = ExtResource("5_3ikvq")
+flat = true
 
 [node name="CarLabel" type="Label" parent="."]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 0
 offset_left = 809.0
-offset_top = 372.0
+offset_top = 480.0
 offset_right = 901.0
-offset_bottom = 395.0
+offset_bottom = 503.0
 text = "placeholder"
 
 [node name="selectCar" type="Label" parent="."]
 layout_mode = 0
 offset_left = 809.0
-offset_top = 98.0
+offset_top = 190.0
 offset_right = 886.0
-offset_bottom = 121.0
+offset_bottom = 213.0
 text = "Select Car"
