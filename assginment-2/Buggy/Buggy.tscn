@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfop2c4jo8abj"]
+[gd_scene load_steps=15 format=3 uid="uid://bfop2c4jo8abj"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_lnoo1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_yutlt"]
@@ -6,12 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1clgg2816paj" path="res://Buggy/buggytirefront.glb" id="5_ymqru"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="6_runbh"]
 [ext_resource type="PackedScene" uid="uid://ctrxe4kbc4y31" path="res://Buggy/buggytireback.glb" id="7_17on6"]
-[ext_resource type="Script" uid="uid://d4opo45e5h4x" path="res://Buggy/camera_3d.gd" id="7_cr68i"]
-[ext_resource type="Texture2D" uid="uid://d3pr8cosih5do" path="res://Buggy/AidenConsole.png" id="7_yutlt"]
-[ext_resource type="Texture2D" uid="uid://dsnyre41j61q6" path="res://Buggy/AidenWheel.png" id="8_cr68i"]
 [ext_resource type="PackedScene" uid="uid://dgnp6p8eik3k" path="res://Buggy/BuggyBody.glb" id="8_it2h8"]
-[ext_resource type="AudioStream" uid="uid://cvk526wl841i" path="res://beep-beep-101391.mp3" id="11_ymqru"]
-[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="12_runbh"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -41,7 +36,7 @@ orientation = 1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_td361"]
 points = PackedVector3Array(0.6, 0.099995986, 0.11533666, 0.54996085, 0.45942426, 0.58970094, 0.54996085, 0.44716468, 0.6829076, 0.54996085, 0.41125283, 0.7696054, 0.54996085, 0.14996302, 1.3296258, 0.6, 0, 0.11533666, 0.6, 0.099995986, -0.484518, 0.06695378, 0.6325442, 0.046863675, 0.54996085, 0.45942426, -0.9302434, 0.3499217, 0.5360156, -1.3298862, -0.55007833, 0.44716468, 0.6829076, -0.55007833, 0.41125283, 0.7696054, -0.55007833, 0.14996302, 1.3296258, 0.54996085, 0, 1.3296258, 0.6, 0, -0.484518, 0.54996085, 0.10767369, -1.2887503, 0.54996085, 0.19299534, -1.2775551, 0.54996085, 0.27967918, -1.2416263, 0.54996085, 0.35416535, -1.1843486, 0.54996085, 0.41125283, -1.1098874, 0.54996085, 0.44716468, -1.0231897, 0.06695378, 0.6325442, -0.25332403, -0.06707126, 0.6325442, 0.046863675, 0.3499217, 0, -1.3298862, -0.35003918, 0.5360156, -1.3298862, -0.55007833, 0.45942426, 0.58970094, -0.6, 0.099995986, 0.11533666, -0.55007833, 0, 1.3296258, -0.06707126, 0.6325442, -0.25332403, -0.35003918, 0, -1.3298862, -0.55007833, 0.10767369, -1.2887503, -0.55007833, 0.19299534, -1.2775551, -0.55007833, 0.27967918, -1.2416263, -0.55007833, 0.35416535, -1.1843486, -0.55007833, 0.41125283, -1.1098874, -0.55007833, 0.44716468, -1.0231897, -0.55007833, 0.45942426, -0.9302434, -0.6, 0, 0.11533666, -0.6, 0.099995986, -0.484518, -0.6, 0, -0.484518)
 
-[node name="Buggy" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
+[node name="SportsCar" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59317064, 0)
 mass = 50.0
 linear_damp_mode = 1
@@ -52,17 +47,18 @@ max_speed = 50.0
 acceleration_curve = SubResource("Curve_cnaw2")
 tire_turn_speed = 0.3
 tire_max_turn_degrees = 4
+show_debug = true
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 
 [node name="WheelFL" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -0.52, -1.9)
 enabled = false
 script = ExtResource("2_yutlt")
-spring_strength = 3000.0
-spring_damping = 150.0
-rest_dist = 0.3
+spring_strength = 800.0
+spring_damping = 100.0
+rest_dist = 0.1
 over_extend = 0.2
-wheel_radius = 0.2
+wheel_radius = 0.3
 is_steer = true
 grip_curve = ExtResource("3_cr68i")
 show_debug = true
@@ -74,11 +70,11 @@ transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.463923
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.9, -0.52, -1.9)
 enabled = false
 script = ExtResource("2_yutlt")
-spring_strength = 3000.0
-spring_damping = 150.0
-rest_dist = 0.3
+spring_strength = 800.0
+spring_damping = 100.0
+rest_dist = 0.1
 over_extend = 0.2
-wheel_radius = 0.2
+wheel_radius = 0.3
 is_steer = true
 grip_curve = ExtResource("3_cr68i")
 show_debug = true
@@ -90,9 +86,9 @@ transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.463923
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15, -0.35855317, 1.12)
 enabled = false
 script = ExtResource("2_yutlt")
-spring_strength = 3000.0
-spring_damping = 150.0
-rest_dist = 0.3
+spring_strength = 800.0
+spring_damping = 100.0
+rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.5
 is_motor = true
@@ -106,9 +102,9 @@ transform = Transform3D(-0.12548618, 0, 1.7454951, 0, 1.75, 0, -1.7454951, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15, -0.35855317, 1.12)
 enabled = false
 script = ExtResource("2_yutlt")
-spring_strength = 3000.0
-spring_damping = 150.0
-rest_dist = 0.3
+spring_strength = 800.0
+spring_damping = 100.0
+rest_dist = 0.1
 over_extend = 0.2
 wheel_radius = 0.5
 is_motor = true
@@ -156,27 +152,8 @@ shape = SubResource("ConvexPolygonShape3D_td361")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
-script = ExtResource("7_cr68i")
-
-[node name="Console" type="CanvasLayer" parent="Camera3D"]
-
-[node name="AidenConsole" type="Sprite2D" parent="Camera3D/Console"]
-position = Vector2(575.99994, 324)
-scale = Vector2(1.2799999, 1.2806324)
-texture = ExtResource("7_yutlt")
-
-[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
-layer = 2
-
-[node name="AidenWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
-position = Vector2(334, 366)
-texture = ExtResource("8_cr68i")
 
 [node name="Buggy" parent="." instance=ExtResource("8_it2h8")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 0, 0)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_ymqru")
-script = ExtResource("12_runbh")
 
 [editable path="Buggy"]

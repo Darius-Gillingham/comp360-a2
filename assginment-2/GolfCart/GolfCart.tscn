@@ -1,16 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://v5hkr45y6w5k"]
+[gd_scene load_steps=14 format=3 uid="uid://v5hkr45y6w5k"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_t8nfs"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_f2ksi"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_neudu"]
 [ext_resource type="PackedScene" uid="uid://baku1koqenetc" path="res://GolfCart/golftire.glb" id="4_s0w0n"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_y032j"]
-[ext_resource type="Script" uid="uid://bkvwe25cnjvv7" path="res://GolfCart/camera_3d.gd" id="6_jqqf0"]
-[ext_resource type="Texture2D" uid="uid://ydf7uektsqkb" path="res://GolfCart/RobertConsole.png" id="7_xuh33"]
-[ext_resource type="Texture2D" uid="uid://dev43yb25utm0" path="res://GolfCart/RobertWheel.png" id="8_1y5hi"]
 [ext_resource type="PackedScene" uid="uid://b0fc67u14g0da" path="res://GolfCart/golfbody.glb" id="8_jqqf0"]
-[ext_resource type="AudioStream" uid="uid://pq1jbe611omd" path="res://bell-ring-390294.mp3" id="10_1y5hi"]
-[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="11_n4ejh"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -37,10 +32,10 @@ material = SubResource("StandardMaterial3D_v0hk8")
 size = Vector2(0.6, 1)
 orientation = 1
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jqqf0"]
-points = PackedVector3Array(0.9923674, 1.0387521, -0.64207023, 0.97833383, 1.0374317, 0.7093575, 1.3595771, 0.2243287, -0.794747, 1.3640212, 0.20287484, -0.8105514, 0.8349582, 0.2347256, -0.8120424, -0.3567198, 0.96250814, -0.65623456, -0.37098718, 0.9611879, 0.69504404, 0.98394716, 0.9352781, 0.7092085, 1.3275341, 0.15452099, 0.7029463, 1.3240258, 0.1771301, 0.68863285, -0.3651399, 0.85903424, 0.69504404, 1.3593432, -0.01347959, -0.81234056, 0.8302803, 0.01853627, -0.81383157, -0.5555277, -0.33792862, -0.6550418, -0.91852754, -0.0844425, -0.54754186, -0.96577364, -0.14715391, -0.49833938, -0.9648381, -0.12933064, -0.46568683, -1.0230771, -0.15292996, -0.25381804, -1.025416, -0.15226984, 0.11341131, -0.980041, -0.15837595, 0.32692015, -0.98612225, -0.18725619, 0.34958315, -0.91174465, -0.11233258, 0.41727376, -0.9080024, -0.36037272, 0.41787016, -0.5578666, -0.33644336, 0.5897807, 0.7937932, -0.029652536, 0.699517, 1.3228561, -0.061668336, 0.7011571, 1.1855618, -0.5072495, -0.3505829, 1.1603016, -0.3212606, -0.64803416, -0.50407153, -0.6222754, -0.48372775, -0.96390253, -0.5930651, -0.41767716, -0.91478527, -0.3323176, -0.54694545, 0.89623785, -0.5963657, -0.50147045, -0.97442764, -0.21564138, -0.51891494, -0.96928203, -0.17883965, -0.51787126, -0.97957325, -0.24798724, -0.50117224, -1.0219077, -0.19732302, -0.25307256, -1.0244805, -0.1966629, 0.11415678, -0.9922034, -0.25838414, 0.34108448, -0.99056613, -0.22389287, 0.35480154, -0.96741086, -0.60296685, 0.2590804, -0.48325515, -0.63415754, 0.40952063, -0.46547937, -0.6382833, 0.4075824, 0.0030056238, -0.33066732, 0.60305035, 1.1577286, -0.3197753, 0.59663916, 1.0000857, -0.6409238, 0.38268292, 1.1495425, -0.5399254, 0.25863314, 0.91331184, -0.5900945, -0.50400513, 0.9830116, -0.6471949, 0.38521767, -1.0195687, -0.2861092, -0.25128335, -0.9837833, -0.26713073, -0.4694143, -1.0219077, -0.2856141, 0.115945935, 0.9652358, -0.64405936, 0.38819957)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_td361"]
+points = PackedVector3Array(0.6, 0.099995986, 0.11533666, 0.54996085, 0.45942426, 0.58970094, 0.54996085, 0.44716468, 0.6829076, 0.54996085, 0.41125283, 0.7696054, 0.54996085, 0.14996302, 1.3296258, 0.6, 0, 0.11533666, 0.6, 0.099995986, -0.484518, 0.06695378, 0.6325442, 0.046863675, 0.54996085, 0.45942426, -0.9302434, 0.3499217, 0.5360156, -1.3298862, -0.55007833, 0.44716468, 0.6829076, -0.55007833, 0.41125283, 0.7696054, -0.55007833, 0.14996302, 1.3296258, 0.54996085, 0, 1.3296258, 0.6, 0, -0.484518, 0.54996085, 0.10767369, -1.2887503, 0.54996085, 0.19299534, -1.2775551, 0.54996085, 0.27967918, -1.2416263, 0.54996085, 0.35416535, -1.1843486, 0.54996085, 0.41125283, -1.1098874, 0.54996085, 0.44716468, -1.0231897, 0.06695378, 0.6325442, -0.25332403, -0.06707126, 0.6325442, 0.046863675, 0.3499217, 0, -1.3298862, -0.35003918, 0.5360156, -1.3298862, -0.55007833, 0.45942426, 0.58970094, -0.6, 0.099995986, 0.11533666, -0.55007833, 0, 1.3296258, -0.06707126, 0.6325442, -0.25332403, -0.35003918, 0, -1.3298862, -0.55007833, 0.10767369, -1.2887503, -0.55007833, 0.19299534, -1.2775551, -0.55007833, 0.27967918, -1.2416263, -0.55007833, 0.35416535, -1.1843486, -0.55007833, 0.41125283, -1.1098874, -0.55007833, 0.44716468, -1.0231897, -0.55007833, 0.45942426, -0.9302434, -0.6, 0, 0.11533666, -0.6, 0.099995986, -0.484518, -0.6, 0, -0.484518)
 
-[node name="GolfCart" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
+[node name="Car" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
 mass = 50.0
 linear_damp_mode = 1
 script = ExtResource("1_t8nfs")
@@ -49,18 +44,18 @@ acceleration = 800.0
 max_speed = 50.0
 acceleration_curve = SubResource("Curve_cnaw2")
 tire_turn_speed = 0.5
-tire_max_turn_degrees = 6
+tire_max_turn_degrees = 8
+show_debug = true
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 
 [node name="WheelFL" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.14616394, -0.8)
 enabled = false
 script = ExtResource("2_f2ksi")
-spring_strength = 3000.0
-spring_damping = 200.0
+spring_strength = 2000.0
+spring_damping = 100.0
 rest_dist = 0.2
 over_extend = 0.1
-wheel_radius = 0.2
 is_steer = true
 grip_curve = ExtResource("3_neudu")
 show_debug = true
@@ -75,11 +70,10 @@ transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.75, -0.14616394, -0.8)
 enabled = false
 script = ExtResource("2_f2ksi")
-spring_strength = 3000.0
-spring_damping = 200.0
+spring_strength = 2000.0
+spring_damping = 100.0
 rest_dist = 0.2
 over_extend = 0.1
-wheel_radius = 0.2
 is_steer = true
 grip_curve = ExtResource("3_neudu")
 show_debug = true
@@ -94,11 +88,10 @@ transform = Transform3D(-6.556708e-08, 0, -1.4999999, 0, 1.5, 0, 1.4999999, 0, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.14616394, 1.25)
 enabled = false
 script = ExtResource("2_f2ksi")
-spring_strength = 3000.0
-spring_damping = 200.0
+spring_strength = 2000.0
+spring_damping = 100.0
 rest_dist = 0.2
 over_extend = 0.1
-wheel_radius = 0.2
 is_motor = true
 grip_curve = ExtResource("5_y032j")
 show_debug = true
@@ -113,11 +106,10 @@ transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.14616394, 1.25)
 enabled = false
 script = ExtResource("2_f2ksi")
-spring_strength = 3000.0
-spring_damping = 200.0
+spring_strength = 2000.0
+spring_damping = 100.0
 rest_dist = 0.2
 over_extend = 0.1
-wheel_radius = 0.2
 is_motor = true
 grip_curve = ExtResource("5_y032j")
 show_debug = true
@@ -159,34 +151,13 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_72krn")
 draw_pass_1 = SubResource("QuadMesh_mjudg")
 
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.25, 0, -1.8874475e-07, 0, 1.25, 0, 1.8874475e-07, 0, -1.25, -0.06843544, 0.040148616, 0.10074815)
+shape = SubResource("ConvexPolygonShape3D_td361")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
-script = ExtResource("6_jqqf0")
-
-[node name="Console" type="CanvasLayer" parent="Camera3D"]
-
-[node name="RobertConsole" type="Sprite2D" parent="Camera3D/Console"]
-position = Vector2(576, 324)
-scale = Vector2(1.28, 1.2806324)
-texture = ExtResource("7_xuh33")
-
-[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
-layer = 2
-
-[node name="RobertWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
-position = Vector2(326, 447)
-texture = ExtResource("8_1y5hi")
 
 [node name="golfbody" parent="." instance=ExtResource("8_jqqf0")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 0.7349243, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 0.77722335, 0)
-shape = SubResource("ConvexPolygonShape3D_jqqf0")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_1y5hi")
-script = ExtResource("11_n4ejh")
-
-[editable path="golfbody"]

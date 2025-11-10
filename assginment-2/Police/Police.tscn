@@ -1,17 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://da3kgm5peybdl"]
+[gd_scene load_steps=14 format=3 uid="uid://da3kgm5peybdl"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_e73ty"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_gajlu"]
 [ext_resource type="Curve" uid="uid://1acrbneiu56c" path="res://tire_front_curve.tres" id="3_7jt6c"]
 [ext_resource type="PackedScene" uid="uid://b2i51g4o0bq8u" path="res://Police/policetire.glb" id="4_e73ty"]
 [ext_resource type="Curve" uid="uid://cpq1hdpefr0sm" path="res://tire_back_curve.tres" id="5_anjbp"]
-[ext_resource type="Script" uid="uid://wbxl3shudroe" path="res://Police/camera_3d.gd" id="6_anjbp"]
 [ext_resource type="PackedScene" uid="uid://dinu7c1l8aa56" path="res://Police/Police Car.glb" id="6_ei0ie"]
-[ext_resource type="Texture2D" uid="uid://clriq1gffnivc" path="res://Police/DariusConsole.png" id="7_ei0ie"]
-[ext_resource type="Texture2D" uid="uid://bn5o722pxtk31" path="res://Police/DariusWheel.png" id="8_lo250"]
-[ext_resource type="Texture2D" uid="uid://b2qyculbq1kpy" path="res://Police/DariusWindshield.png" id="9_08aui"]
-[ext_resource type="AudioStream" uid="uid://cy0kfgwvponya" path="res://police-siren-397963.mp3" id="11_lo250"]
-[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="12_08aui"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -38,11 +32,10 @@ material = SubResource("StandardMaterial3D_v0hk8")
 size = Vector2(0.6, 1)
 orientation = 1
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_anjbp"]
-points = PackedVector3Array(0.8886391, 0.8192529, 0.53389883, 0.8538382, 0.85760355, 0.5503311, 0.77623236, 0.52741104, 1.4245279, 0.8077271, 0.52552676, 1.3259342, 0.7929368, 0.10389117, 1.4552014, 0.84009194, 0.10522125, 0.83917403, 0.84409404, 0.10522125, 0.7822087, 0.84409404, 0.100011766, -0.52141786, 0.8413099, 0.10078765, -0.8343613, 0.8228655, 0.58815134, -0.92492133, 0.6443373, 0.8031811, -1.6388121, 0.588308, 1.0480267, -0.64447725, 0.6399871, 0.6160831, 1.5559859, 0.5879599, 1.0509086, -0.6108824, 0.37567496, 1.222489, -0.47869396, 0.37567496, 1.222489, -0.33555067, 0.33983004, 1.222489, -0.2993996, 0.71359086, 0.53938174, 1.5183744, 0.70402074, 0.39639807, 1.596884, 0.78545463, 0.10389117, 1.5121665, 0.8359158, 0.100011766, 0.69968224, 0.22115922, 0.090147, 1.8371603, -0.8414839, 0.10078765, -0.8343613, 0.7544819, 0.18879464, -1.5351062, 0.83661187, 0.118078694, -0.8814671, 0.80511713, 0.562769, -1.1363498, 0.7675322, 0.47775465, -1.3678622, 0.7544819, 0.22415262, -1.5336455, 0.46441698, 0.26039732, -1.7724612, 0.46441698, 0.2871098, -1.7724612, 0.23664558, 0.2871098, -1.8396509, 0.22028923, 0.84740627, -1.7410573, 0.3400041, 1.222489, -0.5137495, 0.58326185, 1.0209818, -0.83582187, 0.1973207, 0.607105, 1.6757591, 0.22028923, 0.5158836, 1.7564597, 0.61597455, 0.52508336, 1.6436248, 0.09779036, 1.222489, -0.29903448, -0.00017398596, 1.1023384, 0.10592961, 0.6582576, 0.10089849, 1.6947474, 0.5597713, 0.100344285, 1.7597461, 0.38698518, 0.100344285, 1.8042958, 0.22028923, 0.35494387, 1.8148856, -0.00017398596, 0.090147, 1.863452, -0.22150725, 0.090147, 1.8371603, -0.888813, 0.8192529, 0.53389883, -0.8230395, 0.58815134, -0.92492133, -0.80529106, 0.562769, -1.1363498, -0.8367858, 0.118078694, -0.8814671, -0.7548299, 0.18879464, -1.5351062, -0.84426796, 0.100011766, -0.52141786, -0.00017398596, 0.26039732, -1.867038, 0.23664558, 0.26039732, -1.8396509, -0.00017398596, 0.2871098, -1.867038, -0.00017398596, 0.85450006, -1.7574896, -0.340178, 1.222489, -0.5137495, -0.00017398596, 0.6053316, 1.6903656, -0.00017398596, 0.5158836, 1.7816558, 0.5352367, 0.3530596, 1.7257862, -0.09796429, 1.222489, -0.29903448, -0.34000403, 1.222489, -0.2993996, -0.19749463, 0.607105, 1.6757591, -0.00017398596, 0.28866154, 1.8400817, -0.22046322, 0.35494387, 1.8148856, -0.38715917, 0.100344285, 1.8042958, -0.5599452, 0.100344285, 1.7597461, -0.65843153, 0.10089849, 1.6947474, -0.8360898, 0.100011766, 0.69968224, -0.84426796, 0.10522125, 0.7822087, -0.84026587, 0.10522125, 0.83917403, -0.7931107, 0.10389117, 1.4552014, -0.8079011, 0.52552676, 1.3259342, -0.77640635, 0.52741104, 1.4245279, -0.8541862, 0.85760355, 0.5503311, -0.58865595, 1.0480267, -0.64447725, -0.6445112, 0.8031811, -1.6388121, -0.76770616, 0.47775465, -1.3678622, -0.7548299, 0.22415262, -1.5336455, -0.46476498, 0.26039732, -1.7724612, -0.23699361, 0.26039732, -1.8396509, -0.23699361, 0.2871098, -1.8396509, -0.22046322, 0.84740627, -1.7410573, -0.3758489, 1.222489, -0.47869396, -0.22046322, 0.5158836, 1.7564597, -0.3758489, 1.222489, -0.33555067, -0.64033514, 0.6160831, 1.5559859, -0.6163226, 0.52508336, 1.6436248, -0.53541064, 0.3530596, 1.7257862, -0.70419466, 0.39639807, 1.596884, -0.78562856, 0.10389117, 1.5121665, -0.7137649, 0.53938174, 1.5183744, -0.58813393, 1.0509086, -0.6108824, -0.5834358, 1.0209818, -0.83582187, -0.46476498, 0.2871098, -1.7724612)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_td361"]
+points = PackedVector3Array(0.6, 0.099995986, 0.11533666, 0.54996085, 0.45942426, 0.58970094, 0.54996085, 0.44716468, 0.6829076, 0.54996085, 0.41125283, 0.7696054, 0.54996085, 0.14996302, 1.3296258, 0.6, 0, 0.11533666, 0.6, 0.099995986, -0.484518, 0.06695378, 0.6325442, 0.046863675, 0.54996085, 0.45942426, -0.9302434, 0.3499217, 0.5360156, -1.3298862, -0.55007833, 0.44716468, 0.6829076, -0.55007833, 0.41125283, 0.7696054, -0.55007833, 0.14996302, 1.3296258, 0.54996085, 0, 1.3296258, 0.6, 0, -0.484518, 0.54996085, 0.10767369, -1.2887503, 0.54996085, 0.19299534, -1.2775551, 0.54996085, 0.27967918, -1.2416263, 0.54996085, 0.35416535, -1.1843486, 0.54996085, 0.41125283, -1.1098874, 0.54996085, 0.44716468, -1.0231897, 0.06695378, 0.6325442, -0.25332403, -0.06707126, 0.6325442, 0.046863675, 0.3499217, 0, -1.3298862, -0.35003918, 0.5360156, -1.3298862, -0.55007833, 0.45942426, 0.58970094, -0.6, 0.099995986, 0.11533666, -0.55007833, 0, 1.3296258, -0.06707126, 0.6325442, -0.25332403, -0.35003918, 0, -1.3298862, -0.55007833, 0.10767369, -1.2887503, -0.55007833, 0.19299534, -1.2775551, -0.55007833, 0.27967918, -1.2416263, -0.55007833, 0.35416535, -1.1843486, -0.55007833, 0.41125283, -1.1098874, -0.55007833, 0.44716468, -1.0231897, -0.55007833, 0.45942426, -0.9302434, -0.6, 0, 0.11533666, -0.6, 0.099995986, -0.484518, -0.6, 0, -0.484518)
 
-[node name="Police" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8284242, 0)
+[node name="Car" type="RigidBody3D" node_paths=PackedStringArray("wheels", "skid_marks")]
 mass = 50.0
 linear_damp_mode = 1
 script = ExtResource("1_e73ty")
@@ -149,33 +142,13 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_72krn")
 draw_pass_1 = SubResource("QuadMesh_mjudg")
 
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, -0.06843544, -0.2509128, 0.10074815)
+shape = SubResource("ConvexPolygonShape3D_td361")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.6, 5)
 current = true
-script = ExtResource("6_anjbp")
-
-[node name="Console" type="CanvasLayer" parent="Camera3D"]
-layer = 2
-
-[node name="DariusConsole" type="Sprite2D" parent="Camera3D/Console"]
-position = Vector2(575.99994, 324)
-scale = Vector2(1.2799999, 1.2806325)
-texture = ExtResource("7_ei0ie")
-
-[node name="SteeringWheel" type="CanvasLayer" parent="Camera3D"]
-layer = 3
-
-[node name="DariusWheel" type="Sprite2D" parent="Camera3D/SteeringWheel"]
-position = Vector2(316, 466)
-texture = ExtResource("8_lo250")
-
-[node name="Windshield" type="CanvasLayer" parent="Camera3D"]
-
-[node name="DariusWindshield" type="Sprite2D" parent="Camera3D/Windshield"]
-modulate = Color(1, 1, 1, 0.39215687)
-position = Vector2(576, 324)
-scale = Vector2(1.2800001, 1.2806324)
-texture = ExtResource("9_08aui")
 
 [node name="Police Car" parent="." instance=ExtResource("6_ei0ie")]
 transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 0, -0.41223532, 0)
@@ -188,13 +161,5 @@ visible = false
 
 [node name="Cop_FrontRightWheel_Cylinder_012" parent="Police Car" index="3"]
 visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 0, -0.36579502, 0)
-shape = SubResource("ConvexPolygonShape3D_anjbp")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_lo250")
-script = ExtResource("12_08aui")
 
 [editable path="Police Car"]

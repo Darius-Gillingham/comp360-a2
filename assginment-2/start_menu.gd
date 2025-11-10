@@ -13,8 +13,7 @@ var cars = [
 	{"name": "sporty", "scene": "res://SportsCar/SportCar.tscn", "preview": "res://SportsCar/SportsCarSnapshot.png"},
 	{"name": "buggy", "scene": "res://Buggy/Buggy.tscn", "preview": "res://Buggy/BuggySnapshot.png"},
 	{"name": "golf cart", "scene": "res://GolfCart/GolfCart.tscn", "preview": "res://GolfCart/GolfCartSnapshot.png"},
-	{"name": "police", "scene": "res://Police/Police.tscn", "preview": "res://Police/PoliceSnapshot.png"},
-	{"name": "wagon", "scene": "res://Wagon/Wagon.tscn", "preview": "res://Wagon/WagonSnapshot.png"}
+	{"name": "police", "scene": "res://Police/Police.tscn", "preview": "res://Police/PoliceSnapshot.png"}
 	
 ]
 var current_track = 0
@@ -43,6 +42,7 @@ func update_labels():
 	track_preview.texture = load(tracks[current_track].preview)
 	car_label.text = cars[current_car].name
 	car_preview.texture = load(cars[current_car].preview)
+	
 	
 	
 func _prev_track():

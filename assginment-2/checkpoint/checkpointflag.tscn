@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn2mfaf37klyw"]
-
-[ext_resource type="PackedScene" uid="uid://b1oj76l54wjtc" path="res://checkpoint/checkpointflag.glb" id="1_u2cwx"]
-
-[node name="checkpointflag" instance=ExtResource("1_u2cwx")]

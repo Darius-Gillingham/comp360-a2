@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5n40x15ougeh"]
+[gd_scene load_steps=12 format=3 uid="uid://5n40x15ougeh"]
 
 [ext_resource type="Script" uid="uid://db8s7pwxs5ydr" path="res://textures/coast_circuit.gd" id="1_dgmew"]
 [ext_resource type="ArrayMesh" path="res://meshes/coastMesh.mesh" id="1_yl37a"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="3_d2vag"]
 [ext_resource type="Curve3D" uid="uid://cs7jsulfqcvse" path="res://hilbert_curve.tres" id="6_8c2h8"]
 [ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="7_i1nkm"]
-[ext_resource type="PackedScene" uid="uid://66trs7j1qjin" path="res://particles/tsunami.tscn" id="8_q2v5l"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="8_vr7u0"]
-[ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="9_q2v5l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21epx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,27 +24,11 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21epx"]
 albedo_texture = ExtResource("2_d2vag")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1nkm"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 0)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vr7u0"]
-size = Vector3(10, 500, 500)
-
 [node name="CoastalCliffs" type="Node3D"]
 script = ExtResource("1_dgmew")
-tsunami_start_pos = null
-tsunami_end_pos = null
-tsunami_rise_time = null
-tsunami_peak_time = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.2221956e-08, 1, 5.9604645e-08, -1.1313339e-08, -5.9604645e-08, 1, 1, 4.2221956e-08, 1.1313341e-08, 133.0374, 609.3913, 11.855225)
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1.0348989e-07, -0.5957484, 0.8031711, -4.065136e-08, 0.8031711, 0.5957484, -1, -9.4303935e-08, 5.8902103e-08, 337.87177, 609.3913, 11.855225)
-current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8c2h8")
@@ -57,7 +39,7 @@ light_color = Color(0.78338677, 0.77290297, 0.6053045, 1)
 shadow_enabled = true
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -1617.214, -52.168114, -1758.8618)
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -1617.1962, -50.93502, -1759.0823)
 mesh = ExtResource("1_yl37a")
 surface_material_override/0 = SubResource("StandardMaterial3D_21epx")
 
@@ -105,34 +87,4 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -404.03693, 176.93369, -330.937)
-
-[node name="TsunamiTimer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
-
-[node name="TsunamiEndReference" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.961594, 172.35388, -684.4781)
-material_override = SubResource("StandardMaterial3D_i1nkm")
-mesh = SubResource("BoxMesh_vr7u0")
-
-[node name="TsunamiEndReference3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 333.1596, 113.454834, -684.4781)
-material_override = SubResource("StandardMaterial3D_i1nkm")
-mesh = SubResource("BoxMesh_vr7u0")
-
-[node name="TsunamiEndReference2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -468.91455, 113.454834, -684.4781)
-material_override = SubResource("StandardMaterial3D_i1nkm")
-mesh = SubResource("BoxMesh_vr7u0")
-
-[node name="TsunamiStartReference" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -899.66833, -195.2168, 420.9359)
-material_override = SubResource("StandardMaterial3D_i1nkm")
-mesh = SubResource("BoxMesh_vr7u0")
-
-[node name="Tsunami" parent="." instance=ExtResource("8_q2v5l")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1163.7977, 0, 0)
-visible = false
-
-[node name="CheckpointManager" parent="." instance=ExtResource("9_q2v5l")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -404.03693, 171.72946, -330.937)
