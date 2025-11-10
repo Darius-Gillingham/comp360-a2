@@ -1,6 +1,10 @@
 extends Node3D
 
 @onready var car_spawn = $SpawnPoint
+@onready var path = $Path3DCheckpoints
+@onready var checkpoint_manager = $CheckpointManager
+
+@export var num_checkpoints = 8
 
 func _input(event):
 	if event.is_action_pressed("to_menu"):
@@ -12,3 +16,5 @@ func _ready():
 	add_child(car)
 	car.global_transform = car_spawn.global_transform
 	print("spawned", GlobalData.selected_car_scene)
+	
+	checkpoint_manager.init_checkpoints.emit(num_checkpoints, path.curve, path.position, car, car_spawn.global_transform)

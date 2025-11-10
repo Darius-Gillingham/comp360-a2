@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=20 format=3 uid="uid://dw533luquk7pc"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://dw533luquk7pc"]
+>>>>>>> 2aeadf5f579ab1e9b642a0989aed78515591d9ce
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="2_kek77"]
 [ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
@@ -39,6 +44,7 @@ size = Vector3(1.8476563, 1, 4.6606445)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
 
+<<<<<<< HEAD
 [sub_resource type="FontVariation" id="FontVariation_5vw27"]
 variation_embolden = -0.29
 variation_transform = Transform2D(1, 0, 0, 2.47, 0, 0)
@@ -51,8 +57,12 @@ font = SubResource("FontVariation_5vw27")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
 
+=======
+>>>>>>> 2aeadf5f579ab1e9b642a0989aed78515591d9ce
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
+
+[node name="CheckpointManager" parent="." instance=ExtResource("2_kek77")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lquwl")
@@ -80,14 +90,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
+<<<<<<< HEAD
 transform = Transform3D(-0.13977912, 0.057336673, -3.9871473, 0.12838435, 0.9971928, 0.21791777, 2.4927847, -0.04814273, -0.23479648, 127.45514, 3.9132683, 233.0466)
 progress = 420.55
+=======
+transform = Transform3D(-0.16791546, 0.06272386, -3.9830713, 0.12932834, 0.9968984, 0.23722275, 2.4909995, -0.04752907, -0.28081053, 141.90285, 3.088259, 233.98079)
+progress = 435.05173
+>>>>>>> 2aeadf5f579ab1e9b642a0989aed78515591d9ce
 v_offset = -0.05
 script = ExtResource("5_5vw27")
 
 [node name="CarOpponent" parent="Path3DOpponent/PathFollow3D" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.42, -1.8626451e-09, 0, 0, 0.965, -1.3969839e-09, 0, 1.1059456e-08, 0.25, 0.20358276, -0.5000305, 2.162056)
 script = null
+metadata/is_opponent = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3DOpponent/PathFollow3D/CarOpponent"]
 transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
@@ -134,6 +150,7 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="SpawnPoint" type="Node3D" parent="."]
+<<<<<<< HEAD
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 113.47446, 153.57256, 540.24384)
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -165,3 +182,10 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(-0.558475, -0.099342465, -2.8337421, -2.2351742e-08, 1.1356635, -0.24795815, 31.99515, -0.0017339885, -0.049463034, 0.26307678, -0.31015968, 16.362915)
 shape = SubResource("BoxShape3D_5vw27")
+=======
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.67424, 151.9721, 533.03394)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271, 146.822, 508)
+mesh = SubResource("BoxMesh_5vw27")
+>>>>>>> 2aeadf5f579ab1e9b642a0989aed78515591d9ce
