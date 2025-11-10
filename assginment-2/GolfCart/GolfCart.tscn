@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ydf7uektsqkb" path="res://GolfCart/RobertConsole.png" id="7_xuh33"]
 [ext_resource type="Texture2D" uid="uid://dev43yb25utm0" path="res://GolfCart/RobertWheel.png" id="8_1y5hi"]
 [ext_resource type="PackedScene" uid="uid://b0fc67u14g0da" path="res://GolfCart/golfbody.glb" id="8_jqqf0"]
-[ext_resource type="AudioStream" uid="uid://pq1jbe611omd" path="res://Buggy/bell-ring-390294.mp3" id="10_1y5hi"]
+[ext_resource type="AudioStream" uid="uid://pq1jbe611omd" path="res://bell-ring-390294.mp3" id="10_1y5hi"]
 [ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="11_n4ejh"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://clriq1gffnivc" path="res://Police/DariusConsole.png" id="7_ei0ie"]
 [ext_resource type="Texture2D" uid="uid://bn5o722pxtk31" path="res://Police/DariusWheel.png" id="8_lo250"]
 [ext_resource type="Texture2D" uid="uid://b2qyculbq1kpy" path="res://Police/DariusWindshield.png" id="9_08aui"]
-[ext_resource type="AudioStream" uid="uid://cy0kfgwvponya" path="res://Buggy/police-siren-397963.mp3" id="11_lo250"]
+[ext_resource type="AudioStream" uid="uid://cy0kfgwvponya" path="res://police-siren-397963.mp3" id="11_lo250"]
 [ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="12_08aui"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]

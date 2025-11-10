@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d3pr8cosih5do" path="res://Buggy/AidenConsole.png" id="7_yutlt"]
 [ext_resource type="Texture2D" uid="uid://dsnyre41j61q6" path="res://Buggy/AidenWheel.png" id="8_cr68i"]
 [ext_resource type="PackedScene" uid="uid://dgnp6p8eik3k" path="res://Buggy/BuggyBody.glb" id="8_it2h8"]
-[ext_resource type="AudioStream" uid="uid://cvk526wl841i" path="res://Buggy/beep-beep-101391.mp3" id="11_ymqru"]
+[ext_resource type="AudioStream" uid="uid://cvk526wl841i" path="res://beep-beep-101391.mp3" id="11_ymqru"]
 [ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="12_runbh"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
