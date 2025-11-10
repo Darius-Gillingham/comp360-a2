@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5n40x15ougeh"]
+[gd_scene load_steps=16 format=3 uid="uid://5n40x15ougeh"]
 
 [ext_resource type="Script" uid="uid://db8s7pwxs5ydr" path="res://textures/coast_circuit.gd" id="1_dgmew"]
 [ext_resource type="ArrayMesh" path="res://meshes/coastMesh.mesh" id="1_yl37a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="7_i1nkm"]
 [ext_resource type="PackedScene" uid="uid://66trs7j1qjin" path="res://particles/tsunami.tscn" id="8_q2v5l"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="8_vr7u0"]
+[ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="9_q2v5l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21epx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,6 +36,10 @@ size = Vector3(10, 500, 500)
 
 [node name="CoastalCliffs" type="Node3D"]
 script = ExtResource("1_dgmew")
+tsunami_start_pos = null
+tsunami_end_pos = null
+tsunami_rise_time = null
+tsunami_peak_time = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.2221956e-08, 1, 5.9604645e-08, -1.1313339e-08, -5.9604645e-08, 1, 1, 4.2221956e-08, 1.1313341e-08, 133.0374, 609.3913, 11.855225)
@@ -129,3 +134,5 @@ mesh = SubResource("BoxMesh_vr7u0")
 [node name="Tsunami" parent="." instance=ExtResource("8_q2v5l")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1163.7977, 0, 0)
 visible = false
+
+[node name="CheckpointManager" parent="." instance=ExtResource("9_q2v5l")]

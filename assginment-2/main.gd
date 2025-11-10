@@ -1,9 +1,11 @@
 extends Node3D
 
-@onready var car_spawn = $SpawnPoint
+@onready var car_spawn: Node3D = $SpawnPoint
 @onready var path = $Path3D
+@onready var checkpoint_manager = $CheckpointManager
 
-@export var num_dust_devils = 15
+@export var num_dust_devils = 20
+@export var num_checkpoints = 10
 
 func _input(event):
 	if event.is_action_pressed("to_menu"):
@@ -18,6 +20,7 @@ func _ready():
 	print("spawned", GlobalData.selected_car_scene)
 	
 	init_weather()
+	checkpoint_manager.init_checkpoints.emit(num_checkpoints, path.curve, path.position, car, car_spawn.global_transform)
 
 func init_weather():
 	print("init weather")

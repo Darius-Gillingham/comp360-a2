@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=17 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://d0ty0v71a6p8v" path="res://textures/textMap_DUNE.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="2_kek77"]
 [ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
@@ -40,6 +41,8 @@ size = Vector3(1.8476563, 1, 4.6606445)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
+
+[node name="CheckpointManager" parent="." instance=ExtResource("2_kek77")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lquwl")

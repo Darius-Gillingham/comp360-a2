@@ -12,11 +12,6 @@ func start_wave_tween(start_pos: Vector3, direction: Vector3, rise: float, rise_
 	var target_rise_end = target_rise + direction * (peak_time / total_time)
 	var target_fall = target_rise_end + direction * (rise_time / total_time) - Vector3(0, rise, 0)
 	
-	print(start_pos)
-	print(target_rise)
-	print(target_rise_end)
-	print(target_fall)
-	
 	var rise_tween = create_tween()
 	rise_tween.tween_property(self, "position", target_rise, rise_time)\
 		 .set_ease(Tween.EASE_OUT)\

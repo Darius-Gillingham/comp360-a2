@@ -2,12 +2,16 @@ extends Node3D
 
 @onready var car_spawn = $SpawnPoint
 @onready var tsunami_timer = $TsunamiTimer
+@onready var path = $HilbertPath
+@onready var checkpoint_manager = $CheckpointManager
+
 var tsuanmi_scene = load("res://particles/tsunami.tscn")
 
 @export var tsunami_start_pos: Vector3 = Vector3(-1000, -50, 420)
-@export var tsunami_end_pos: Vector3 = Vector3(40, -50, 420)
-@export var tsunami_rise_time: float = 5.0
-@export var tsunami_peak_time: float = 5.0
+@export var tsunami_end_pos: Vector3 = Vector3(80, -50, 420)
+@export var tsunami_rise_time: float = 4.5
+@export var tsunami_peak_time: float = 6.0
+@export var num_checkpoints = 50
 
 func _input(event):
 	if event.is_action_pressed("to_menu"):
@@ -24,6 +28,8 @@ func _ready():
 	#$Camera3D2.current = true
 	
 	init_weather()
+	checkpoint_manager.init_checkpoints.emit(num_checkpoints, path.curve, path.position, car, car_spawn.global_transform)
+
 
 func init_weather():
 	#var tsunami: Node3D = tsuanmi_scene.instantiate()

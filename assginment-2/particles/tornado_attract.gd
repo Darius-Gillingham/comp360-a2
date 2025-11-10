@@ -1,8 +1,8 @@
 extends Area3D
 
-@export var attract_force = 7000
+@export var attract_force = 750
 @export var swirl_force = 2000
-@export var up_force = 700
+@export var up_force = 300
 
 var cars_in_radius = []
 
@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 		apply_tornade_force(car)
 	
 func car_entered(body: Node3D):
-	print(body.has_meta("is_opponent"))
 	if body is RigidBody3D and (not body.has_meta("is_opponent") or not body.get_meta("is_opponent")):
 		cars_in_radius.append(body)
 		
@@ -30,14 +29,20 @@ func apply_tornade_force(body: RigidBody3D):
 	var distance_to_tornado = max(0.5, v_attract.length())
 	
 	if distance_to_tornado > 6:
-		v_attract = v_attract.normalized() * min((attract_force/ distance_to_tornado), attract_force)
+		v_attract = v_attract.normalized() * pow(min((attract_force/ distance_to_tornado), attract_force),2)
+		#v_attract = v_attract.normalized() * min((attract_force/ distance_to_tornado), attract_force)
 		body.apply_central_force(v_attract)
 	else:
 		cars_in_radius.erase(body)
 		var v_up = Vector3.UP * up_force
-		var v_forward = get_parent().get_meta("forward_vec")* 500
+		var v_forward = get_parent().get_meta("forward_vec")* 700
 		body.apply_impulse(v_forward + v_up)
 
+	#v_attract = v_attract.normalized() * pow(min((attract_force/ distance_to_tornado), attract_force),2)
+	#var v_up = Vector3.UP * pow(min((up_force / distance_to_tornado), up_force),2)
+	#var v_forward = get_parent().get_meta("forward_vec") * (700 if distance_to_tornado < 6 else 0)
+	#
+	#body.apply_central_force(v_attract + v_up + v_forward)
 	
 	#if v_attract.y > 0:
 		#v_attract = v_attract.normalized() * min((attract_force/ distance_to_tornado), attract_force)
