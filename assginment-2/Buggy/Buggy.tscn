@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfop2c4jo8abj"]
+[gd_scene load_steps=20 format=3 uid="uid://bfop2c4jo8abj"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_lnoo1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_yutlt"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://d3pr8cosih5do" path="res://Buggy/AidenConsole.png" id="7_yutlt"]
 [ext_resource type="Texture2D" uid="uid://dsnyre41j61q6" path="res://Buggy/AidenWheel.png" id="8_cr68i"]
 [ext_resource type="PackedScene" uid="uid://dgnp6p8eik3k" path="res://Buggy/BuggyBody.glb" id="8_it2h8"]
+[ext_resource type="AudioStream" uid="uid://cvk526wl841i" path="res://Buggy/beep-beep-101391.mp3" id="11_ymqru"]
+[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="12_runbh"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -172,5 +174,9 @@ texture = ExtResource("8_cr68i")
 
 [node name="Buggy" parent="." instance=ExtResource("8_it2h8")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 0, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ymqru")
+script = ExtResource("12_runbh")
 
 [editable path="Buggy"]

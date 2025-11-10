@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1shauqvv5i24"]
+[gd_scene load_steps=19 format=3 uid="uid://c1shauqvv5i24"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_lo0fn"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="2_jf0wr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://crg2amb0in516" path="res://Wagon/EmmaWagon.png" id="6_rvlrp"]
 [ext_resource type="Texture2D" uid="uid://cdlnk2ad1feso" path="res://Wagon/EmmaHandle.png" id="7_hj30q"]
 [ext_resource type="PackedScene" uid="uid://cmiue4d3cnbga" path="res://Wagon/wagon_wheelless.glb" id="7_rvlrp"]
+[ext_resource type="AudioStream" uid="uid://dhyfsbgtds5b8" path="res://Buggy/duck-quack-112941.mp3" id="10_fuwko"]
+[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="11_2s8nm"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.4, 0.90000004), 0.05168594, 0.05168594, 0, 0, Vector2(0.40001002, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.6), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -171,5 +173,9 @@ shape = SubResource("ConvexPolygonShape3D_hj30q")
 
 [node name="wagon_wheelless" parent="." instance=ExtResource("7_rvlrp")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0153205395, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fuwko")
+script = ExtResource("11_2s8nm")
 
 [editable path="wagon_wheelless"]

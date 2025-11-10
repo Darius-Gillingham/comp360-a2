@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://duq45g0wsaw82"]
+[gd_scene load_steps=19 format=3 uid="uid://duq45g0wsaw82"]
 
 [ext_resource type="Script" uid="uid://bglgbj7snewub" path="res://RaycastCar.gd" id="1_06lh1"]
 [ext_resource type="Script" uid="uid://2chqduwuu0hx" path="res://raycast_wheel.gd" id="3_72krn"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://4cm5fr5afknc" path="res://Toyota/JoelInterior.png" id="7_gtx0d"]
 [ext_resource type="Texture2D" uid="uid://cgv5bjlcvaht6" path="res://Toyota/JoelWheel.png" id="8_hsvih"]
 [ext_resource type="PackedScene" uid="uid://d032j0i3dy6vc" path="res://Toyota/Root Scene.glb" id="9_u5era"]
+[ext_resource type="AudioStream" uid="uid://c5plhswp6meom" path="res://carHorn.mp3" id="10_hsvih"]
+[ext_resource type="Script" uid="uid://ctwhlo15bice1" path="res://Buggy/audio_stream_player.gd" id="11_mjd70"]
 
 [sub_resource type="Curve" id="Curve_cnaw2"]
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.29999, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.3, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -170,5 +172,9 @@ transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.4901162e-06, 7.400976e-06, -25, -25, -1.4901163e-06, -7.450582e-07, -7.450583e-07, 25, 8.146035e-06, 0, -0.46326125, 0)
 shape = SubResource("ConvexPolygonShape3D_xwhop")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hsvih")
+script = ExtResource("11_mjd70")
 
 [editable path="Root Scene"]
