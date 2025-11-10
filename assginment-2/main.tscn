@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dw533luquk7pc"]
+[gd_scene load_steps=15 format=3 uid="uid://dw533luquk7pc"]
 
 [ext_resource type="Script" uid="uid://lpfnifc1223t" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="ArrayMesh" path="res://meshes/dune.mesh" id="1_ig7tw"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://beunodsubor7" path="res://innerWall.tscn" id="6_5vw27"]
-[ext_resource type="Script" uid="uid://c1xkgyseasdlc" path="res://oncollision.gd" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,20 +35,6 @@ point_count = 23
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 size = Vector3(1.8476563, 1, 4.6606445)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
-
-[sub_resource type="FontVariation" id="FontVariation_5vw27"]
-variation_embolden = -0.29
-variation_transform = Transform2D(1, 0, 0, 2.47, 0, 0)
-spacing_glyph = 10
-spacing_space = 210
-
-[sub_resource type="TextMesh" id="TextMesh_kek77"]
-text = "Start"
-font = SubResource("FontVariation_5vw27")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_7mycd")
@@ -80,10 +65,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.13977912, 0.057336673, -3.9871473, 0.12838435, 0.9971928, 0.21791777, 2.4927847, -0.04814273, -0.23479648, 127.45514, 3.9132683, 233.0466)
-progress = 420.55
+transform = Transform3D(-0.1679155, 0.06272387, -3.9830713, 0.12932819, 0.9968986, 0.23722273, 2.4909995, -0.047529027, -0.28081053, 141.90285, 3.088259, 233.98079)
+progress = 435.05173
 v_offset = -0.05
 script = ExtResource("5_5vw27")
+speed = 0.015
 
 [node name="CarOpponent" parent="Path3DOpponent/PathFollow3D" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.42, -1.8626451e-09, 0, 0, 0.965, -1.3969839e-09, 0, 1.1059456e-08, 0.25, 0.20358276, -0.5000305, 2.162056)
@@ -134,34 +120,4 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 113.47446, 153.57256, 540.24384)
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.8378502, 0.0031196247, -0.03574736, 0, 4.9998097, 0.0043632677, 0.06005785, -0.04352101, 0.4987014, 144.9097, 153.93877, 529.1097)
-script = ExtResource("9_kek77")
-text_node_path = NodePath("StartingPost/TextStart")
-
-[node name="StartingPost" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, -2.3283064e-10, 0, -7.275958e-12, 1.0000001, 0, 0, 7.450581e-09, 1.0000001, 0, 0, 0)
-mesh = SubResource("BoxMesh_5vw27")
-skeleton = NodePath("../..")
-
-[node name="Post1" type="MeshInstance3D" parent="Area3D/StartingPost"]
-transform = Transform3D(0.99981534, -0.005980458, 0.011411412, 2.814454e-05, 0.9990491, 0.0043621007, -0.03225045, -0.43609744, 0.99886423, -0.39727783, -0.024957657, 32.800293)
-mesh = SubResource("BoxMesh_5vw27")
-skeleton = NodePath("../../..")
-
-[node name="Bar" type="MeshInstance3D" parent="Area3D/StartingPost"]
-transform = Transform3D(1.000261, -0.4030968, -8.731149e-11, -1.36788e-09, 1.4528632e-06, -0.10037628, 0.012221053, 32.992363, 3.7252903e-09, -0.19152832, 0.45126724, 16.643555)
-mesh = SubResource("BoxMesh_5vw27")
-skeleton = NodePath("../../..")
-
-[node name="TextStart" type="MeshInstance3D" parent="Area3D/StartingPost"]
-transform = Transform3D(-0.55847514, -0.099342465, -2.833742, -5.5879354e-09, 1.1356632, -0.24795808, 31.995142, -0.0017340034, -0.049463034, 0.26307678, -0.091674805, 16.38208)
-gi_mode = 2
-mesh = SubResource("TextMesh_kek77")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(-0.558475, -0.099342465, -2.8337421, -2.2351742e-08, 1.1356635, -0.24795815, 31.99515, -0.0017339885, -0.049463034, 0.26307678, -0.31015968, 16.362915)
-shape = SubResource("BoxShape3D_5vw27")
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 169.67424, 151.9721, 533.03394)
