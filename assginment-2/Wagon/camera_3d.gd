@@ -22,7 +22,7 @@ func _ready() -> void:
 	wheel.visible = false
 	
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("change_pov"):
+	if ((Input.is_action_just_pressed("change_pov")) && (GlobalData.selected_car_scene == "res://Wagon/Wagon.tscn")):
 		first_person = !first_person
 		body.visible = not first_person
 		wheel1.visible = not first_person
