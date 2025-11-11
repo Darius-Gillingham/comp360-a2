@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://duib2r3s0atxl"]
+[gd_scene load_steps=25 format=3 uid="uid://duib2r3s0atxl"]
 
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="1_k8u83"]
 [ext_resource type="Script" uid="uid://cgbp73ntsbmyb" path="res://alpine.gd" id="1_po1q1"]
@@ -9,12 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="3_jif4c"]
 [ext_resource type="PackedScene" uid="uid://bv7bdychmqy4e" path="res://startingpoint.tscn" id="8_6iq5c"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="8_fkll6"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="10_apylg"]
 [ext_resource type="Shader" uid="uid://n51e3hi7jh8f" path="res://startline.gdshader" id="10_g5w51"]
 [ext_resource type="Texture2D" uid="uid://bk7edtdynlu3l" path="res://textures/checkers.png" id="11_apylg"]
 [ext_resource type="Script" uid="uid://l7oolqfuj22g" path="res://randomizecar.gd" id="11_q5sl0"]
 [ext_resource type="Script" uid="uid://b34qlpmgv18ph" path="res://path_follow_3d_2.gd" id="13_apylg"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://SportsCar/SportCar.tscn" id="13_cukla"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="13_cukla"]
 [ext_resource type="PackedScene" uid="uid://v5hkr45y6w5k" path="res://GolfCart/GolfCart.tscn" id="14_q5sl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
@@ -155,7 +154,7 @@ v_offset = -0.05
 script = ExtResource("8_fkll6")
 speed = 0.03
 
-[node name="CarOpponent" parent="Path3D2/PathFollow3D" instance=ExtResource("10_apylg")]
+[node name="CarOpponent" parent="Path3D2/PathFollow3D" instance=ExtResource("13_cukla")]
 transform = Transform3D(-0.36192518, 0.0054033264, -0.016878197, 0.0019006816, 1.0349858, -4.3221847e-13, -0.027848644, 0.00041576358, 0.2193516, -1.3591347, -0.8460083, 2.227869)
 script = ExtResource("11_q5sl0")
 all_car_scenes = ["res://Toyota/Toyota.tscn", "res://SportsCar/SportCar.tscn", "res://Buggy/Buggy.tscn", "res://GolfCart/GolfCart.tscn", "res://Police/Police.tscn", "res://Wagon/Wagon.tscn"]
@@ -182,7 +181,7 @@ h_offset = 5.835
 v_offset = -0.05
 script = ExtResource("13_apylg")
 
-[node name="CarOpponent" parent="Path3D2/PathFollow3D2" instance=ExtResource("10_apylg")]
+[node name="CarOpponent" parent="Path3D2/PathFollow3D2" instance=ExtResource("13_cukla")]
 transform = Transform3D(-0.3626213, 0.00541372, -0.0099798655, 0.0019006815, 1.0349858, 0, -0.01646655, 0.00024583578, 0.21977353, -1.3591347, -0.8460083, 2.227869)
 script = ExtResource("11_q5sl0")
 all_car_scenes = ["res://Toyota/Toyota.tscn", "res://SportsCar/SportCar.tscn", "res://Buggy/Buggy.tscn", "res://GolfCart/GolfCart.tscn", "res://Police/Police.tscn", "res://Wagon/Wagon.tscn"]
