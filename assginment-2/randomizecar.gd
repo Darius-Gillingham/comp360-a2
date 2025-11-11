@@ -25,6 +25,7 @@ func _ready():
 	if car_scene is PackedScene:
 		var car_instance = car_scene.instantiate()
 		add_child(car_instance)
+		car_instance.set_meta("is_opponent", true)
 
 		# Reset transform so it appears at the parent node's location
 		if car_instance is Node3D:
