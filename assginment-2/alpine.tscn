@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://duib2r3s0atxl"]
+[gd_scene load_steps=23 format=3 uid="uid://duib2r3s0atxl"]
 
 [ext_resource type="PackedScene" uid="uid://c32fwuwqmbdra" path="res://Road.tscn" id="1_k8u83"]
 [ext_resource type="Script" uid="uid://cgbp73ntsbmyb" path="res://alpine.gd" id="1_po1q1"]
@@ -7,7 +7,12 @@
 [ext_resource type="ArrayMesh" path="res://meshes/IceSpikes.mesh" id="2_tvsfe"]
 [ext_resource type="Texture2D" uid="uid://w1oh42kid4lg" path="res://textures/spikesTexture.png" id="3_4era8"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="3_jif4c"]
+[ext_resource type="PackedScene" uid="uid://bv7bdychmqy4e" path="res://startingpoint.tscn" id="8_6iq5c"]
 [ext_resource type="Script" uid="uid://ba2yksavjlhyo" path="res://path_follow_3d.gd" id="8_fkll6"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="10_apylg"]
+[ext_resource type="Shader" uid="uid://n51e3hi7jh8f" path="res://startline.gdshader" id="10_g5w51"]
+[ext_resource type="Texture2D" uid="uid://bk7edtdynlu3l" path="res://textures/checkers.png" id="11_apylg"]
+[ext_resource type="Script" uid="uid://b34qlpmgv18ph" path="res://path_follow_3d_2.gd" id="13_apylg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
 sky_top_color = Color(0.24365193, 0.56732476, 0.8639467, 1)
@@ -40,9 +45,23 @@ _data = {
 }
 point_count = 20
 
-[sub_resource type="BoxMesh" id="BoxMesh_pas47"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y21kd"]
+render_priority = 0
+shader = ExtResource("10_g5w51")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rbn2r"]
+[sub_resource type="BoxMesh" id="BoxMesh_cukla"]
+material = SubResource("ShaderMaterial_y21kd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5sl0"]
+albedo_texture = ExtResource("11_apylg")
+heightmap_enabled = true
+heightmap_scale = 10.785
+uv1_scale = Vector3(0.61, 0.61, 0.61)
+uv1_offset = Vector3(-0.25, 0, 0)
+uv2_scale = Vector3(1.195, 1.195, 1.195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y21kd"]
+size = Vector3(1.8476563, 1, 4.6606445)
 
 [node name="AlpineSpikes" type="Node3D"]
 script = ExtResource("1_po1q1")
@@ -112,29 +131,55 @@ path_joined = false
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 551.8927, -245.34314)
 
+[node name="Area3D" parent="." instance=ExtResource("8_6iq5c")]
+transform = Transform3D(0.6481646, 0.027753796, -0.318027, 0, 4.9998097, 0.004363267, 0.5343057, -0.033668045, 0.38579756, 29.504875, 176.68138, -78.211876)
+
+[node name="Bar" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-1.7023301, 0.13996696, -0.0004966785, -0.0009451654, 0.015866796, 0.024999585, -0.02003026, -33.648815, 0.0011730021, -0.061660767, -0.5333557, 16.48793)
+mesh = SubResource("BoxMesh_cukla")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5sl0")
+
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.07088, 175.45729, -75.35095)
 curve = SubResource("Curve3D_po1q1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-1.6644937, 0.0015788381, -2.9845216, 0.0059308563, 0.9999964, -3.5606759e-06, 1.8653226, -0.0017706694, -2.6631947, -87.042435, -0.050002888, -2.3330348)
+transform = Transform3D(-1.6644943, 0.0015788367, -2.984521, 0.0059308587, 0.9999955, -3.560675e-06, 1.8653233, -0.0017706678, -2.6631942, -87.06574, -0.049919855, -2.30692)
 progress = 809.1339
+h_offset = 0.035
 v_offset = -0.05
 script = ExtResource("8_fkll6")
 speed = 0.03
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D2/PathFollow3D"]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 0, 0, 1, 0, 0.00038146973, 0)
+[node name="CarOpponent" parent="Path3D2/PathFollow3D" instance=ExtResource("10_apylg")]
+transform = Transform3D(-0.36192518, 0.0054033264, -0.016878197, 0.0019006816, 1.0349858, -4.3221847e-13, -0.027848644, 0.00041576358, 0.2193516, -1.3591347, -0.8460083, 2.227869)
+script = null
+metadata/is_opponent = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D2/PathFollow3D/CharacterBody3D"]
-mesh = SubResource("BoxMesh_pas47")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CarOpponent"]
+transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
+shape = SubResource("BoxShape3D_y21kd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CharacterBody3D"]
-shape = SubResource("BoxShape3D_rbn2r")
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-1.5145406, 0.0014585272, -3.1824107, 0.006020732, 0.99999535, -2.2916956e-06, 1.9890041, -0.0019163889, -2.4232683, -81.04103, -0.035940334, 9.994297)
+progress = 821.3935
+h_offset = 5.835
+v_offset = -0.05
+script = ExtResource("13_apylg")
+
+[node name="CarOpponent" parent="Path3D2/PathFollow3D2" instance=ExtResource("10_apylg")]
+transform = Transform3D(-0.3626213, 0.00541372, -0.0099798655, 0.0019006815, 1.0349858, 0, -0.01646655, 0.00024583578, 0.21977353, -1.3591347, -0.8460083, 2.227869)
+script = null
+metadata/is_opponent = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D2/CarOpponent"]
+transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
+shape = SubResource("BoxShape3D_y21kd")
 
 [node name="Path3DCheckpoints" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.07088, 174.1256, -75.35095)
 curve = SubResource("Curve3D_po1q1")
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 14.567152, 175.98773, -83.95486)
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 6.9727573, 175.98773, -84.94454)

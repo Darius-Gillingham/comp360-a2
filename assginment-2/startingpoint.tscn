@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv7bdychmqy4e"]
 
-[ext_resource type="Script" uid="uid://c1xkgyseasdlc" path="res://oncollision.gd" id="1_irlhu"]
+[ext_resource type="Script" uid="uid://dupw4jexco652" path="res://oncollision.gd" id="1_irlhu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
 

@@ -1,4 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=0 format=3 uid="uid://br3ckxxs0rvkl"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://br3ckxxs0rvkl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f61fm"]
 
 [resource]
 albedo_color = Color(1, 0, 0, 1)
+albedo_texture = SubResource("AtlasTexture_f61fm")

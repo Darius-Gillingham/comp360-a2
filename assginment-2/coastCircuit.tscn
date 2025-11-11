@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5n40x15ougeh"]
+[gd_scene load_steps=22 format=3 uid="uid://5n40x15ougeh"]
 
 [ext_resource type="Script" uid="uid://db8s7pwxs5ydr" path="res://textures/coast_circuit.gd" id="1_dgmew"]
 [ext_resource type="ArrayMesh" path="res://meshes/coastMesh.mesh" id="1_yl37a"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://66trs7j1qjin" path="res://particles/tsunami.tscn" id="8_q2v5l"]
 [ext_resource type="PackedScene" uid="uid://qlgibrusdo3s" path="res://outerWall.tscn" id="8_vr7u0"]
 [ext_resource type="PackedScene" uid="uid://dpc1t1qpsc51r" path="res://checkpoint/checkpoint_manager.tscn" id="9_q2v5l"]
+[ext_resource type="PackedScene" uid="uid://bv7bdychmqy4e" path="res://startingpoint.tscn" id="10_vhak4"]
+[ext_resource type="Shader" uid="uid://n51e3hi7jh8f" path="res://startline.gdshader" id="11_icgh4"]
+[ext_resource type="Texture2D" uid="uid://bk7edtdynlu3l" path="res://textures/checkers.png" id="12_lw7us"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_21epx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,6 +36,21 @@ albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vr7u0"]
 size = Vector3(10, 500, 500)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n3bmt"]
+render_priority = 0
+shader = ExtResource("11_icgh4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rcyjk"]
+material = SubResource("ShaderMaterial_n3bmt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqwkm"]
+albedo_texture = ExtResource("12_lw7us")
+heightmap_enabled = true
+heightmap_scale = 10.785
+uv1_scale = Vector3(0.61, 0.61, 0.61)
+uv1_offset = Vector3(-0.25, 0, 0)
+uv2_scale = Vector3(1.195, 1.195, 1.195)
 
 [node name="CoastalCliffs" type="Node3D"]
 script = ExtResource("1_dgmew")
@@ -136,3 +154,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -116
 visible = false
 
 [node name="CheckpointManager" parent="." instance=ExtResource("9_q2v5l")]
+
+[node name="Area3D" parent="." instance=ExtResource("10_vhak4")]
+transform = Transform3D(0.8378502, 0.0031196247, -0.03574736, 0, 4.9998097, 0.0043632677, 0.06005785, -0.04352101, 0.4987014, -386.14236, 174.51949, -339.40656)
+script = null
+
+[node name="Bar" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1.4298931, -0.44475996, 2.1827873e-11, 0, -1.5944242e-06, -0.015000006, 0.017470315, 36.402313, -6.9849193e-10, -0.1914978, -0.49113846, 16.560608)
+mesh = SubResource("BoxMesh_rcyjk")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rqwkm")
