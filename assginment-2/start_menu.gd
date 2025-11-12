@@ -64,5 +64,6 @@ func _next_car():
 	
 func _on_play_pressed():
 	GlobalData.selected_car_scene = cars[current_car].scene
+	
 	get_tree().change_scene_to_file(tracks[current_track].scene)
 	print("calling", tracks[current_track].scene, "with ", cars[current_car].name)
