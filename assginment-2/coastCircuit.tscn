@@ -157,7 +157,7 @@ visible = false
 
 [node name="Area3D" parent="." instance=ExtResource("10_vhak4")]
 transform = Transform3D(0.8378502, 0.0031196247, -0.03574736, 0, 4.9998097, 0.0043632677, 0.06005785, -0.04352101, 0.4987014, -386.14236, 174.51949, -339.40656)
-script = null
+text_node_path = NodePath("")
 
 [node name="Bar" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(1.4298931, -0.44475996, 2.1827873e-11, 0, -1.5944242e-06, -0.015000006, 0.017470315, 36.402313, -6.9849193e-10, -0.1914978, -0.49113846, 16.560608)

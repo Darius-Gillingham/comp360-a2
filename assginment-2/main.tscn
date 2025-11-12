@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 149.16068, 303.0387)
 curve = SubResource("Curve3D_272bh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.09927954, 0.0493159, -3.9919739, 0.1273121, 0.99758124, 0.18907736, 2.4947817, -0.0489454, -0.16850898, 105.75902, 5.0198326, 231.95155)
+transform = Transform3D(-0.09927954, 0.049315896, -3.9919739, 0.12731203, 0.99758106, 0.18907738, 2.4947817, -0.04894537, -0.16850898, 105.75902, 5.0198326, 231.95155)
 progress = 398.79742
 v_offset = -0.05
 script = ExtResource("5_5vw27")
@@ -107,7 +107,7 @@ transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432
 shape = SubResource("BoxShape3D_kek77")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3DOpponent"]
-transform = Transform3D(-0.09927952, 0.049315687, -3.9919739, 0.12731208, 0.99757695, 0.18907736, 2.4947815, -0.048945192, -0.16850898, 105.91786, 4.816133, 227.95992)
+transform = Transform3D(-0.09927952, 0.04931569, -3.9919739, 0.12731202, 0.99757695, 0.18907738, 2.4947815, -0.04894517, -0.16850898, 105.91786, 4.8161335, 227.95992)
 progress = 398.79742
 h_offset = -4.0
 v_offset = -0.05
