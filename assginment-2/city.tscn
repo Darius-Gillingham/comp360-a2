@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://df682eju3u7rs"]
+[gd_scene load_steps=4 format=3 uid="uid://df682eju3u7rs"]
 
 [ext_resource type="Script" uid="uid://bxbrcdoyfismy" path="res://cityMain.gd" id="1_m7k8b"]
 [ext_resource type="ArrayMesh" uid="uid://8kdqgsq17m5d" path="res://hilbert_city.mesh" id="2_m7k8b"]
+
+[sub_resource type="GDScript" id="GDScript_m7k8b"]
+script/source = "extends Node3D
+"
 
 [node name="City" type="Node3D"]
 script = ExtResource("1_m7k8b")
@@ -16,3 +20,6 @@ mesh = ExtResource("2_m7k8b")
 
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -121.62297, 18.581406, 273.75317)
+
+[node name="CityTrackBuilder" type="Node3D" parent="."]
+script = SubResource("GDScript_m7k8b")

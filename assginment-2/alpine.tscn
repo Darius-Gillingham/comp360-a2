@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bk7edtdynlu3l" path="res://textures/checkers.png" id="11_apylg"]
 [ext_resource type="Script" uid="uid://l7oolqfuj22g" path="res://randomizecar.gd" id="11_q5sl0"]
 [ext_resource type="Script" uid="uid://b34qlpmgv18ph" path="res://path_follow_3d_2.gd" id="13_apylg"]
-[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://car.tscn" id="13_cukla"]
+[ext_resource type="PackedScene" uid="uid://duq45g0wsaw82" path="res://Toyota/Toyota.tscn" id="13_cukla"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvsfe"]
 sky_top_color = Color(0.24365193, 0.56732476, 0.8639467, 1)
@@ -159,7 +159,7 @@ script = ExtResource("11_q5sl0")
 all_car_scenes = ["res://Toyota/Toyota.tscn", "res://SportsCar/SportCar.tscn", "res://Buggy/Buggy.tscn", "res://GolfCart/GolfCart.tscn", "res://Police/Police.tscn", "res://Wagon/Wagon.tscn"]
 metadata/is_opponent = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CarOpponent"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Path3D2/PathFollow3D/CarOpponent"]
 transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
 shape = SubResource("BoxShape3D_y21kd")
 
@@ -176,7 +176,7 @@ script = ExtResource("11_q5sl0")
 all_car_scenes = ["res://Toyota/Toyota.tscn", "res://SportsCar/SportCar.tscn", "res://Buggy/Buggy.tscn", "res://GolfCart/GolfCart.tscn", "res://Police/Police.tscn", "res://Wagon/Wagon.tscn"]
 metadata/is_opponent = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollow3D2/CarOpponent"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Path3D2/PathFollow3D2/CarOpponent"]
 transform = Transform3D(1, -1.1175871e-07, -1.0728836e-06, 0, 0.99999917, 9.1432594e-07, 0, -1.7462298e-08, 1.0000019, -0.07171631, 0.0074920654, -0.30612183)
 shape = SubResource("BoxShape3D_y21kd")
 
