@@ -6,7 +6,7 @@ extends Node3D
 
 @export var num_dust_devils = 20
 @export var num_checkpoints = 10
-
+@export var is_player := false
 func _input(event):
 	if event.is_action_pressed("to_menu"):
 		get_tree().change_scene_to_file("res://startMenu.tscn")
@@ -15,6 +15,8 @@ func _input(event):
 func _ready():
 	var chosen_car = load(GlobalData.selected_car_scene)
 	var car = chosen_car.instantiate()
+	car.add_to_group("player")
+	
 	add_child(car)
 	car.global_transform = car_spawn.global_transform
 	print("spawned", GlobalData.selected_car_scene)

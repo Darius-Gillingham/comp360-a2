@@ -24,6 +24,7 @@ func _ready():
 	var car_scene = load(car_scene_path)
 	if car_scene is PackedScene:
 		var car_instance = car_scene.instantiate()
+		
 		add_child(car_instance)
 		car_instance.set_meta("is_opponent", true)
 

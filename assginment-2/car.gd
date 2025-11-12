@@ -6,7 +6,7 @@ const ENGINE_POWER = 200
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera_3d: Camera3D = $CameraPivot/Camera3D
 @onready var reverse_camera: Camera3D = $CameraPivot/ReverseCamera
-
+@export var is_player := true
 var move_input
 var turn_input
 var look_toward
